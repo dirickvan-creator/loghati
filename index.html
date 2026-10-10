@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#9B59FF">
+<title>🦄 لُغَتي — كتابي في اللغة العربية والتربية الإسلامية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Amiri:wght@400;700&family=Reem+Kufi:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#FF6FB5;--pink-light:#FFD6EC;--pink-soft:#FFF0F8;
+  --purple:#9B59FF;--purple-light:#E8D5FF;--purple-soft:#F5EEFF;
+  --mint:#3DD9B0;--mint-light:#D4F8EC;
+  --yellow:#FFD93D;--yellow-light:#FFF8C2;
+  --blue:#5EC8FF;--blue-light:#D6EEFF;
+  --orange:#FFA45B;--red:#FF6B6B;
+  --text:#2D1B4E;--text-soft:#6B5B8F;--white:#FFFFFF;
+  --shadow-sm:0 3px 10px rgba(155,89,255,0.12);
+  --shadow-md:0 8px 25px rgba(155,89,255,0.18);
+  --shadow-lg:0 15px 40px rgba(255,111,181,0.25);
+  --fs:1;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;font-size:calc(16px*var(--fs));}
+body{font-family:'Tajawal',sans-serif;background:linear-gradient(135deg,#FFE5F4 0%,#E8D5FF 30%,#D6EEFF 60%,#D4F8EC 100%);background-attachment:fixed;min-height:100vh;color:var(--text);padding-bottom:20px;direction:rtl;overflow-x:hidden;line-height:1.6;}
+button,input,select{font:inherit;color:inherit;}
+button{cursor:pointer;}
+:focus-visible{outline:3px solid var(--purple);outline-offset:3px;border-radius:8px;}
+.hidden{display:none!important;}
+
+.bg-decor{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+.bg-decor .uni{position:absolute;font-size:2.5rem;opacity:0.10;animation:float 6s ease-in-out infinite;}
+.bg-decor .uni:nth-child(1){top:8%;left:5%;}
+.bg-decor .uni:nth-child(2){top:25%;right:8%;animation-delay:1s;font-size:3rem;}
+.bg-decor .uni:nth-child(3){bottom:15%;left:10%;animation-delay:2s;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-25px) rotate(8deg);}}
+.bg-decor .star{position:absolute;font-size:1.2rem;opacity:0.3;animation:twinkle 3s ease-in-out infinite;}
+@keyframes twinkle{0%,100%{opacity:0.2;}50%{opacity:0.7;}}
+
+header{background:linear-gradient(135deg,#FF6FB5 0%,#9B59FF 50%,#5EC8FF 100%);color:white;padding:20px;border-radius:0 0 32px 32px;box-shadow:0 10px 30px rgba(155,89,255,0.35);position:relative;z-index:10;overflow:hidden;}
+header::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,rgba(255,255,255,0.25) 0%,transparent 40%),radial-gradient(circle at 80% 80%,rgba(255,255,255,0.15) 0%,transparent 40%);pointer-events:none;}
+.header-content{position:relative;z-index:2;max-width:900px;margin:0 auto;display:flex;align-items:center;gap:15px;}
+.header-logo{font-size:2.6rem;animation:bounce 2s infinite;}
+@keyframes bounce{0%,100%{transform:translateY(0) rotate(-5deg);}50%{transform:translateY(-8px) rotate(5deg);}}
+.header-text h1{font-size:1.4rem;font-weight:900;}
+.header-text p{font-size:0.82rem;opacity:0.95;margin-top:3px;}
+
+.save-status{position:fixed;top:12px;inset-inline-end:12px;z-index:80;background:rgba(255,255,255,0.95);padding:6px 12px;border-radius:14px;font-size:0.78rem;font-weight:700;color:var(--text-soft);box-shadow:var(--shadow-sm);display:flex;align-items:center;gap:6px;transition:opacity 0.4s;pointer-events:none;}
+.save-status.ok{color:#0a7a5a;}
+.save-status.err{color:var(--red);pointer-events:auto;}
+.save-status.fade{opacity:0.25;}
+
+.tabs{display:flex;gap:8px;padding:14px 18px;overflow-x:auto;scrollbar-width:none;position:sticky;top:0;background:rgba(255,255,255,0.85);backdrop-filter:blur(15px);z-index:20;border-bottom:2px dashed var(--pink-light);}
+.tabs::-webkit-scrollbar{display:none;}
+.tab{flex-shrink:0;padding:10px 16px;border-radius:18px;background:var(--white);border:2.5px solid var(--purple-light);color:var(--text);font-family:inherit;font-weight:700;font-size:0.9rem;transition:all 0.25s;display:flex;align-items:center;gap:6px;box-shadow:var(--shadow-sm);white-space:nowrap;}
+.tab:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
+.tab.active{background:linear-gradient(135deg,var(--pink),var(--purple));color:white;border-color:transparent;box-shadow:0 6px 20px rgba(255,111,181,0.45);}
+
+.container{max-width:900px;margin:0 auto;padding:18px;position:relative;z-index:5;}
+.section{display:none;}
+.section.active{display:block;animation:slideIn 0.4s ease;}
+@keyframes slideIn{from{opacity:0;transform:translateY(15px);}to{opacity:1;transform:translateY(0);}}
+
+.card{background:var(--white);border-radius:24px;padding:20px;margin-bottom:16px;box-shadow:var(--shadow-md);border:2px solid var(--purple-light);position:relative;overflow:hidden;}
+.card h2{font-size:1.25rem;margin-bottom:12px;display:flex;align-items:center;gap:10px;color:var(--purple);font-weight:900;}
+.card h2 .icon{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:linear-gradient(135deg,var(--pink-light),var(--purple-light));border-radius:11px;font-size:1.2rem;}
+
+.hero{background:linear-gradient(135deg,#FFD6EC,#E8D5FF,#D6EEFF);border-radius:24px;padding:22px;margin-bottom:16px;text-align:center;border:2px solid white;box-shadow:var(--shadow-md);}
+.hero h2{font-size:1.4rem;font-weight:900;color:var(--purple);margin-bottom:8px;}
+.hero p{font-size:0.98rem;color:var(--text-soft);line-height:1.6;}
+.overall-progress{margin-top:12px;padding:10px 14px;background:rgba(255,255,255,0.7);border-radius:16px;}
+.overall-progress .row{display:flex;justify-content:space-between;font-size:0.85rem;font-weight:700;color:var(--text-soft);margin-bottom:6px;}
+.overall-progress .bar{height:10px;background:rgba(155,89,255,0.15);border-radius:6px;overflow:hidden;}
+.overall-progress .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--pink),var(--purple),var(--mint));border-radius:6px;transition:width 0.6s;}
+
+.chapters-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px;margin-top:12px;}
+.chapter-card{background:linear-gradient(135deg,var(--pink-light),var(--purple-light));border-radius:20px;padding:16px 12px;text-align:center;transition:all 0.3s;border:2.5px solid transparent;position:relative;font-family:inherit;color:inherit;width:100%;display:block;min-height:130px;}
+.chapter-card:hover{transform:translateY(-5px);border-color:var(--pink);box-shadow:0 10px 22px rgba(255,111,181,0.35);}
+.chapter-card .emoji{font-size:1.9rem;display:block;margin-bottom:4px;}
+.chapter-card .num{font-size:1.3rem;font-weight:900;color:var(--pink);line-height:1;}
+.chapter-card .title{font-size:0.88rem;font-weight:700;margin-top:5px;color:var(--text);line-height:1.3;}
+.chapter-card .bar{height:6px;background:rgba(255,255,255,0.6);border-radius:4px;overflow:hidden;margin-top:8px;}
+.chapter-card .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--mint),var(--blue));border-radius:4px;transition:width 0.6s;}
+.chapter-card .sub{font-size:0.72rem;color:var(--text-soft);margin-top:4px;font-weight:700;}
+.chapter-card .status-badge{position:absolute;top:8px;inset-inline-end:8px;font-size:0.85rem;}
+
+.btn{padding:11px 20px;border:none;border-radius:16px;font-family:inherit;font-size:0.95rem;font-weight:700;transition:all 0.2s;display:inline-flex;align-items:center;justify-content:center;gap:6px;box-shadow:var(--shadow-sm);color:white;min-height:46px;}
+.btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:var(--shadow-md);}
+.btn:disabled{opacity:0.5;cursor:not-allowed;}
+.btn-primary{background:linear-gradient(135deg,var(--pink),var(--purple));}
+.btn-mint{background:linear-gradient(135deg,var(--mint),var(--blue));}
+.btn-yellow{background:linear-gradient(135deg,var(--yellow),var(--orange));color:var(--text);}
+.btn-ghost{background:var(--white);color:var(--purple);border:2.5px solid var(--purple-light);}
+.btn-ghost:hover:not(:disabled){background:var(--purple-soft);}
+.btn-warn{background:linear-gradient(135deg,var(--red),var(--orange));}
+.btn-sm{padding:8px 14px;font-size:0.85rem;min-height:38px;}
+
+.info-banner{background:linear-gradient(135deg,var(--yellow-light),var(--pink-light));border:2.5px dashed var(--pink);border-radius:16px;padding:11px 15px;margin-bottom:14px;text-align:center;font-weight:700;color:var(--purple);font-size:0.9rem;}
+
+.progress-bar{height:10px;background:var(--purple-light);border-radius:8px;overflow:hidden;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--pink),var(--purple),var(--mint));border-radius:8px;transition:width 0.5s;}
+
+.reading-stage{text-align:center;padding:18px 15px;background:linear-gradient(135deg,var(--purple-soft),var(--pink-soft));border-radius:22px;margin-bottom:14px;border:2.5px solid white;}
+.reading-emoji{font-size:4.5rem;margin-bottom:8px;animation:wiggle 2s ease-in-out infinite;}
+@keyframes wiggle{0%,100%{transform:rotate(-4deg);}50%{transform:rotate(4deg);}}
+.reading-word{font-family:'Amiri',serif;font-size:4rem;font-weight:700;color:var(--purple);line-height:1.2;cursor:pointer;user-select:none;transition:all 0.3s;padding:10px;min-height:100px;display:flex;align-items:center;justify-content:center;border-radius:16px;border:0;background:transparent;width:100%;}
+.reading-word:hover{transform:scale(1.04);color:var(--pink);}
+
+.word-bank{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px;}
+.word-chip{background:var(--white);border:3px solid var(--blue-light);border-radius:20px;transition:all 0.2s;color:var(--text);min-height:76px;display:flex;align-items:center;gap:10px;box-shadow:0 4px 12px rgba(94,200,255,0.15);padding:12px 16px;width:100%;text-align:start;font:inherit;cursor:pointer;}
+.word-chip:hover:not(:disabled){background:var(--blue-light);transform:translateY(-4px);border-color:var(--blue);box-shadow:0 8px 20px rgba(94,200,255,0.35);}
+.word-chip.correct{background:linear-gradient(135deg,var(--mint),#5FE8C5);border-color:var(--mint);color:white;}
+.word-chip.wrong{background:#FFC2C2;border-color:#FF8080;animation:shake 0.5s;}
+@keyframes shake{0%,100%{transform:translateX(0);}20%{transform:translateX(-8px);}40%{transform:translateX(8px);}60%{transform:translateX(-5px);}80%{transform:translateX(5px);}}
+
+.choices{display:grid;gap:12px;}
+.choice{display:flex;align-items:center;gap:14px;padding:16px 18px;background:linear-gradient(135deg,#FFFFFF,#F5EEFF);border:2.5px solid var(--purple-light);border-radius:20px;min-height:76px;cursor:pointer;transition:all 0.2s;box-shadow:0 4px 14px rgba(155,89,255,0.12);width:100%;text-align:start;font:inherit;direction:rtl;}
+.choice:hover:not(:disabled){transform:translateY(-3px);border-color:var(--purple);background:linear-gradient(135deg,#FFFFFF,#E8D5FF);box-shadow:0 8px 22px rgba(155,89,255,0.25);}
+.choice:active:not(:disabled){transform:translateY(-1px) scale(0.99);}
+.choice:disabled{cursor:default;}
+.choice-badge{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--purple));color:white;font-family:'Tajawal',sans-serif;font-weight:900;font-size:1.05rem;display:flex;align-items:center;justify-content:center;border:2px solid white;box-shadow:0 3px 8px rgba(155,89,255,0.4);line-height:1;padding-bottom:2px;}
+.choice-text{flex:1;font-family:'Amiri',serif;font-weight:900;font-size:1.55rem;color:var(--text);text-align:start;line-height:1.3;min-width:0;overflow-wrap:break-word;}
+.choice.big .choice-text{font-size:2.2rem;}
+.choice.ok{background:linear-gradient(135deg,var(--mint),#5FE8C5);border-color:var(--mint);}
+.choice.ok .choice-badge{background:linear-gradient(135deg,#0a7a5a,#43A047);}
+.choice.ok .choice-text{color:white;}
+.choice.bad{background:#E0E0E0;border-color:#BDBDBD;box-shadow:none;}
+.choice.bad .choice-badge{background:linear-gradient(135deg,#757575,#9E9E9E);}
+.choice.bad .choice-text{color:#666;}
+
+.controls-row{display:flex;gap:8px;justify-content:center;margin-top:14px;flex-wrap:wrap;}
+
+.trace-stage{text-align:center;}
+.letter-info{display:flex;justify-content:center;align-items:center;gap:15px;margin-bottom:10px;flex-wrap:wrap;}
+.letter-name{font-size:1.4rem;font-weight:900;color:var(--pink);font-family:'Reem Kufi',sans-serif;}
+.letter-badge{background:linear-gradient(135deg,var(--purple),var(--pink));color:white;padding:6px 14px;border-radius:14px;font-weight:700;font-size:0.82rem;}
+.canvas-wrapper{position:relative;display:inline-block;border:3px solid var(--pink);border-radius:20px;overflow:hidden;background:linear-gradient(135deg,#FFFDF9,#FFF5FB);box-shadow:0 10px 25px rgba(255,111,181,0.3);max-width:100%;}
+#traceCanvas{display:block;cursor:crosshair;touch-action:none;max-width:100%;height:auto;}
+
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;}
+.match-col h4{text-align:center;margin-bottom:8px;color:var(--purple);font-size:0.95rem;font-weight:900;padding:8px;background:var(--purple-soft);border-radius:12px;}
+.match-item{padding:16px 12px;margin-bottom:10px;border-radius:18px;background:var(--white);border:3px solid var(--purple-light);transition:all 0.2s;text-align:center;font-weight:700;user-select:none;min-height:72px;display:flex;align-items:center;justify-content:center;width:100%;color:var(--text);box-shadow:0 4px 12px rgba(155,89,255,0.1);}
+.match-item.word{font-family:'Amiri',serif;font-size:1.55rem;color:var(--purple);}
+.match-item.emoji{font-size:2.5rem;padding:10px;}
+.match-item:hover:not(.matched):not(:disabled){transform:scale(1.04);border-color:var(--purple);}
+.match-item.selected{background:linear-gradient(135deg,var(--yellow-light),var(--pink-light));border-color:var(--yellow);transform:scale(1.05);}
+.match-item.matched{background:linear-gradient(135deg,var(--mint-light),#E8FFF8);border-color:var(--mint);color:var(--mint);cursor:default;opacity:0.7;}
+.match-item.wrong-match{background:#FFE0E0;border-color:#FF8080;animation:shake 0.5s;}
+.match-score{text-align:center;font-size:1.3rem;font-weight:900;color:var(--pink);margin-top:14px;padding:12px;background:var(--pink-soft);border-radius:16px;}
+
+.quiz-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding:10px 15px;background:var(--purple-soft);border-radius:14px;flex-wrap:wrap;gap:8px;}
+.quiz-progress{font-weight:700;color:var(--purple);font-size:0.9rem;}
+.quiz-score-live{font-weight:900;color:var(--pink);font-size:1.05rem;}
+.quiz-question{font-size:1.2rem;font-weight:700;margin-bottom:16px;text-align:center;color:var(--text);line-height:1.5;padding:16px;background:linear-gradient(135deg,var(--blue-light),var(--purple-light));border-radius:18px;min-height:70px;display:flex;align-items:center;justify-content:center;}
+.quiz-options{display:grid;gap:12px;}
+.quiz-option{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;background:var(--white);border:3px solid var(--blue-light);transition:all 0.2s;cursor:pointer;min-height:62px;width:100%;box-shadow:0 4px 12px rgba(94,200,255,0.15);text-align:start;font:inherit;direction:rtl;}
+.quiz-option:hover:not(:disabled){background:var(--blue-light);border-color:var(--blue);transform:translateY(-2px);}
+.quiz-option:disabled{cursor:default;}
+.quiz-option-badge{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--purple));color:white;font-family:'Tajawal',sans-serif;font-weight:900;font-size:0.9rem;display:flex;align-items:center;justify-content:center;border:2px solid white;box-shadow:0 2px 5px rgba(94,200,255,0.35);line-height:1;padding-bottom:2px;}
+.quiz-option-text{flex:1;font-family:'Amiri',serif;font-weight:700;font-size:1.35rem;color:var(--text);text-align:start;min-width:0;}
+.quiz-option.correct{background:linear-gradient(135deg,var(--mint),#5FE8C5);border-color:var(--mint);}
+.quiz-option.correct .quiz-option-badge{background:linear-gradient(135deg,#0a7a5a,#43A047);}
+.quiz-option.correct .quiz-option-text{color:white;}
+.quiz-option.wrong{background:#FFB3B3;border-color:#FF8080;}
+.quiz-option.wrong .quiz-option-badge{background:linear-gradient(135deg,#B71C1C,#E53935);}
+.quiz-option.wrong .quiz-option-text{color:white;}
+.quiz-final{text-align:center;padding:22px 15px;}
+.quiz-final .trophy{font-size:4.5rem;}
+.quiz-final .score-big{font-size:2.4rem;font-weight:900;color:var(--pink);margin:12px 0 8px;}
+.quiz-final .message{font-size:1.05rem;color:var(--text-soft);font-weight:600;line-height:1.6;}
+
+.toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%) translateY(200px);background:linear-gradient(135deg,var(--pink),var(--purple));color:white;padding:13px 24px;border-radius:20px;font-weight:700;font-size:0.98rem;box-shadow:0 12px 35px rgba(255,111,181,0.5);transition:transform 0.4s;z-index:1000;display:flex;align-items:center;gap:10px;max-width:90vw;text-align:center;}
+.toast.show{transform:translateX(-50%) translateY(0);}
+
+.unit-overlay{position:fixed;inset:0;z-index:100;background:linear-gradient(135deg,#FFE5F4 0%,#E8D5FF 30%,#D6EEFF 60%,#D4F8EC 100%);display:flex;flex-direction:column;overflow-y:auto;}
+.unit-overlay.hidden{display:none;}
+.unit-topbar{display:flex;align-items:center;gap:10px;padding:14px 16px;color:white;font-weight:900;font-size:1.05rem;border-radius:0 0 24px 24px;box-shadow:0 8px 24px rgba(0,0,0,0.15);position:sticky;top:0;z-index:5;}
+.unit-topbar .ttl{flex:1;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.unit-topbar .iconbtn{background:rgba(255,255,255,0.22);border:0;border-radius:14px;width:44px;height:44px;color:white;font-size:1.3rem;display:grid;place-items:center;font-weight:900;}
+.unit-topbar .stars-pill{background:rgba(255,255,255,0.25);padding:6px 12px;border-radius:16px;font-size:0.88rem;font-weight:900;white-space:nowrap;}
+.unit-progress-wrap{padding:8px 20px 0;}
+.unit-meta{display:flex;justify-content:space-between;align-items:center;padding:8px 20px 0;font-weight:900;color:var(--purple);font-size:0.88rem;}
+.unit-body{flex:1;padding:16px 18px 24px;max-width:720px;margin:0 auto;width:100%;}
+.unit-body .card{border-radius:22px;padding:18px;margin-bottom:14px;background:rgba(255,255,255,0.96);}
+.unit-bottom{display:flex;align-items:center;gap:10px;padding:12px 18px calc(18px + env(safe-area-inset-bottom));position:sticky;bottom:0;background:linear-gradient(transparent,rgba(255,255,255,0.92) 30%);backdrop-filter:blur(6px);}
+.unit-bottom .grow{flex:1;}
+.linkbtn{background:none;border:0;color:var(--purple);font-weight:900;padding:10px;font-size:0.9rem;border-radius:10px;}
+.hintbtn{background:linear-gradient(135deg,var(--yellow),var(--orange));border:0;color:var(--text);font-weight:900;padding:10px 14px;font-size:0.9rem;border-radius:14px;display:inline-flex;align-items:center;gap:6px;box-shadow:var(--shadow-sm);cursor:pointer;}
+.hintbtn:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);}
+
+.q{font-size:1.35rem;font-weight:700;line-height:1.9;margin:0;color:var(--text);}
+.qvis{font-size:2.5rem;line-height:1.6;text-align:center;white-space:pre-line;border-top:2px dashed var(--pink-light);margin-top:10px;padding-top:10px;}
+.qvis.arabic{font-family:'Amiri',serif;font-weight:700;direction:rtl;}
+.wbox{margin-top:6px;}
+.fb{margin-top:12px;padding:13px;border-radius:16px;font-weight:900;font-size:1.02rem;text-align:center;}
+.fb.good{background:linear-gradient(135deg,var(--mint-light),#E8FFF8);color:#0a7a5a;border:2px solid var(--mint);}
+.fb.try{background:linear-gradient(135deg,var(--yellow-light),#FFFDF0);color:#8a6a00;border:2px solid var(--yellow);}
+.fb.explain{background:linear-gradient(135deg,#E3F2FD,#BBDEFB);color:#0d47a1;border:2px solid #64B5F6;font-size:0.98rem;line-height:1.7;text-align:start;}
+
+.al-card{background:linear-gradient(135deg,#FFF8E1,#FFE0F0);border:3px dashed #FFD93D;border-radius:22px;padding:16px;text-align:center;margin:10px 0 14px;box-shadow:0 6px 18px rgba(255,179,0,0.2);}
+.al-word{font-family:'Amiri',serif;font-size:3.4rem;font-weight:700;direction:rtl;color:var(--text);line-height:1.3;letter-spacing:1px;}
+.al-highlight{color:#B71C1C;background:rgba(255,217,61,0.55);padding:2px 8px;border-radius:10px;display:inline-block;box-shadow:inset 0 -4px 0 rgba(255,111,181,0.35);}
+.al-actions{display:flex;gap:8px;justify-content:center;margin-top:12px;flex-wrap:wrap;}
+.al-hint{margin-top:12px;padding:12px 14px;background:rgba(255,255,255,0.9);border-radius:14px;font-size:0.92rem;font-weight:700;color:var(--purple);line-height:1.75;text-align:start;border:2px solid var(--purple-light);}
+
+@media(max-width:600px){
+  .header-text h1{font-size:1.1rem;}
+  .reading-word{font-size:2.8rem;}
+  .word-chip{min-height:66px;padding:10px 12px;}
+  .chapter-card{padding:12px 8px;min-height:120px;}
+  .chapters-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;}
+  .q{font-size:1.15rem;}
+  .qvis{font-size:1.9rem;}
+  .al-word{font-size:2.6rem;}
+  .quiz-option{min-height:56px;padding:12px 14px;gap:10px;}
+  .quiz-option-badge{width:28px;height:28px;font-size:0.8rem;}
+  .quiz-option-text{font-size:1.15rem;}
+  .choice{min-height:68px;padding:14px 16px;gap:12px;}
+  .choice-badge{width:34px;height:34px;font-size:0.95rem;}
+  .choice-text{font-size:1.35rem;}
+  .choice.big .choice-text{font-size:1.9rem;}
+  .match-item{min-height:62px;padding:12px 8px;}
+  .match-item.word{font-size:1.3rem;}
+  .match-item.emoji{font-size:2.1rem;}
+}
+@media(max-width:400px){
+  .word-bank{grid-template-columns:1fr;}
+  .choice-text{font-size:1.15rem;}
+  .choice.big .choice-text{font-size:1.6rem;}
+  .choice-badge{width:30px;height:30px;font-size:0.85rem;}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-decor" aria-hidden="true">
+  <span class="uni">🦄</span><span class="uni">🌈</span><span class="uni">⭐</span><span class="uni">✨</span><span class="uni">🌸</span>
+  <span class="star" style="top:15%;left:20%;">⭐</span>
+  <span class="star" style="top:35%;right:25%;animation-delay:1s;">✨</span>
+  <span class="star" style="top:60%;left:15%;animation-delay:2s;">🌟</span>
+</div>
+
+<div id="saveStatus" class="save-status hidden" role="status" aria-live="polite"></div>
+
+<header>
+  <div class="header-content">
+    <div class="header-logo" aria-hidden="true">🦄</div>
+    <div class="header-text">
+      <h1>لُغَتي — كِتابي في اللُّغة العَرَبيَّة</h1>
+      <p>📖 السنة الأولى ابتدائي • تعلّم باللعب والمرح ✨</p>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs" role="tablist">
+  <button class="tab active" data-target="home" role="tab" aria-selected="true" aria-controls="home">🏠 الرئيسية</button>
+  <button class="tab" data-target="reading" role="tab" aria-selected="false" aria-controls="reading">📖 القراءة</button>
+  <button class="tab" data-target="tracing" role="tab" aria-selected="false" aria-controls="tracing">✍️ تتبع الحروف</button>
+  <button class="tab" data-target="matching" role="tab" aria-selected="false" aria-controls="matching">🎯 المطابقة</button>
+  <button class="tab" data-target="quiz" role="tab" aria-selected="false" aria-controls="quiz">🏆 اختبر نفسك</button>
+  <button class="tab" data-target="parent" role="tab" aria-selected="false" aria-controls="parent">👨‍👩‍👧 الأهل</button>
+</nav>
+
+<div class="container">
+  <section id="home" class="section active" role="tabpanel">
+    <div class="hero">
+      <div style="font-size:2.4rem;letter-spacing:6px;margin-bottom:8px;" aria-hidden="true">🌈⭐🦄⭐🌈</div>
+      <h2>🌟 مرحباً بك يا بطل! 🌟</h2>
+      <p>أهلاً بك في تطبيق <b>لُغَتي</b>! هنا ستتعلم الحروف، وتقرأ الكلمات، وتلعب ألعاباً ممتعة.</p>
+      <div class="overall-progress" id="overallProgress"></div>
+    </div>
+    <div class="card">
+      <h2><span class="icon">📚</span> المحاور الثمانية</h2>
+      <p style="margin-bottom:10px;color:var(--text-soft);">اضغط على أي محور لتبدأ تمارينه:</p>
+      <div class="chapters-grid" id="chaptersGrid"></div>
+    </div>
+  </section>
+  <section id="reading" class="section" role="tabpanel">
+    <div class="card">
+      <h2><span class="icon">📖</span> تمرين القراءة</h2>
+      <div class="info-banner">👆 اضغط على الكلمة لسماعها، ثم اختر الكلمة الصحيحة</div>
+      <div class="reading-stage">
+        <div class="reading-emoji" id="readingEmoji">👋</div>
+        <button class="reading-word" id="readingWord" onclick="speakCurrentWord()">مَرْحَبًا</button>
+      </div>
+      <div class="controls-row">
+        <button class="btn btn-ghost" onclick="prevWord()">⬅️ السابق</button>
+        <button class="btn btn-primary" onclick="speakCurrentWord()">🔊 اسمع</button>
+        <button class="btn btn-ghost" onclick="nextWord()">التالي ➡️</button>
+      </div>
+      <h3 style="text-align:center;margin-top:18px;color:var(--pink);">🎯 اختر الكلمة الصحيحة:</h3>
+      <div class="word-bank" id="wordBank"></div>
+      <div class="progress-bar" style="margin-top:14px;"><div class="progress-fill" id="readingProgress" style="width:0%"></div></div>
+      <div style="text-align:center;font-size:0.82rem;color:var(--text-soft);margin-top:6px;" id="readingProgressText">0 / 0</div>
+    </div>
+  </section>
+  <section id="tracing" class="section" role="tabpanel">
+    <div class="card">
+      <h2><span class="icon">✍️</span> تتبع الحروف</h2>
+      <div class="info-banner">🖌️ ارسم الحرف بإصبعك أو الفأرة فوق النموذج</div>
+      <div class="trace-stage">
+        <div class="letter-info">
+          <span class="letter-name" id="letterName">أَلِف</span>
+          <span class="letter-badge" id="letterBadge">1 / 28</span>
+        </div>
+        <div class="canvas-wrapper"><canvas id="traceCanvas" width="500" height="320"></canvas></div>
+        <div class="controls-row">
+          <button class="btn btn-yellow" onclick="clearCanvas()">🧹 مسح</button>
+          <button class="btn btn-ghost" onclick="prevLetter()">⬅️ السابق</button>
+          <button class="btn btn-primary" onclick="speakLetter()">🔊 اسمع</button>
+          <button class="btn btn-ghost" onclick="nextLetter()">التالي ➡️</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="matching" class="section" role="tabpanel">
+    <div class="card">
+      <h2><span class="icon">🎯</span> لعبة المطابقة</h2>
+      <div class="info-banner">🔗 اربط الكلمة بالصورة المناسبة</div>
+      <div class="match-grid">
+        <div class="match-col"><h4>📝 الكلمات</h4><div id="matchWords"></div></div>
+        <div class="match-col"><h4>🖼️ الصور</h4><div id="matchImages"></div></div>
+      </div>
+      <div class="match-score" id="matchScore">✅ 0 / 0</div>
+      <div class="controls-row">
+        <button class="btn btn-primary" onclick="newMatchGame()">🔄 لعبة جديدة</button>
+      </div>
+    </div>
+  </section>
+  <section id="quiz" class="section" role="tabpanel">
+    <div class="card">
+      <h2><span class="icon">🏆</span> اختبر نفسك</h2>
+      <div class="quiz-header">
+        <span class="quiz-progress" id="quizProgress">السؤال 1 من 5</span>
+        <span class="quiz-score-live" id="quizScoreLive">⭐ 0</span>
+      </div>
+      <div id="quizContent">
+        <div class="quiz-question" id="quizQuestion"></div>
+        <div class="quiz-options" id="quizOptions"></div>
+      </div>
+      <div id="quizFinal" style="display:none;"></div>
+      <div class="controls-row" style="margin-top:14px;">
+        <button class="btn btn-primary" onclick="startQuiz()">🔄 ابدأ من جديد</button>
+      </div>
+    </div>
+  </section>
+  <section id="parent" class="section" role="tabpanel">
+    <div class="card">
+      <h2><span class="icon">👨‍👩‍👧</span> ركن الأهل</h2>
+      <div id="parentContent"></div>
+    </div>
+  </section>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<canvas id="confetti" class="hidden" aria-hidden="true" style="position:fixed;inset:0;pointer-events:none;z-index:200;"></canvas>
+
+<div id="unitOverlay" class="unit-overlay hidden" role="dialog" aria-modal="true">
+  <div class="unit-topbar" id="unitTopbar">
+    <button class="iconbtn" onclick="closeUnit()" aria-label="إغلاق">✕</button>
+    <div class="ttl" id="unitTitle">المحور</div>
+    <span class="stars-pill" id="unitStars">⭐ 0</span>
+  </div>
+  <div class="unit-progress-wrap"><div class="progress-bar"><div class="progress-fill" id="unitProgress" style="width:0%"></div></div></div>
+  <div class="unit-meta"><span id="unitIdx">1 / 1</span><span id="unitPage"></span></div>
+  <div class="unit-body" id="unitBody">
+    <div id="unitRulesCard"></div>
+    <div class="card">
+      <p class="q" id="unitQuestion"></p>
+      <div class="qvis" id="unitVis"></div>
+    </div>
+    <div class="wbox" id="unitBox"></div>
+    <div class="fb hidden" id="unitFb"></div>
+  </div>
+  <div class="unit-bottom" id="unitBottom"></div>
+  <div id="unitResultView" class="hidden"></div>
+</div>
+
+<script>
+'use strict';
+
+/* ============================================================
+   DATA — original content, unchanged
+   ============================================================ */
+const DATA = {
+  version: 2,
+  units: [
+    {
+      title: "المحور 1: عائلتي", icon:"👨‍👩‍👧‍👦", field:"family",
+      qs: [
+        {p:9,t:"ما الحرف الأول في كلمة «مَرْحَبًا»؟",type:"mc",o:["م","ب","ح","ر"],a:0,id:"u1_01",word:"مَرْحَبًا",hint:"🔎 الحرف الأول هو أول ما تسمعه في الكلمة.",explain:"«مَرْحَبًا» تبدأ بحرف الميم «م»."},
+        {p:9,t:"ما الحرف الأول في كلمة «بِلَال»؟",type:"mc",o:["ب","م","ل","ر"],a:0,id:"u1_02",word:"بِلَال",hint:"🔎 اسمع أول صوت في الكلمة.",explain:"«بِلَال» تبدأ بحرف الباء «ب»."},
+        {p:10,t:"اختر الكلمة الصحيحة للصورة 👦",type:"mc",o:["أَحْمَدُ","خَدِيجَةُ","جَدِّي","أُمِّي"],a:0,id:"u1_03",hint:"👦 هذه صورة ولد اسمه أحمد.",explain:"الصورة تعبر عن «أَحْمَدُ»."},
+        {p:10,t:"اختر الكلمة الصحيحة للصورة 👵",type:"mc",o:["جَدَّتِي","جَدِّي","أُمِّي","أَبِي"],a:0,id:"u1_04",hint:"👵 هذه امرأة مسنّة، هي جدة.",explain:"الصورة تعبر عن «جَدَّتِي»."},
+        {p:11,t:"اقرأ كلمة «أَحْمَدُ» ثم اختر الحرف الأول:",type:"mc",o:["أ","ح","م","د"],a:0,id:"u1_05",word:"أَحْمَدُ",hint:"🔎 أول حرف في الاسم هو ما يُكتب أولاً.",explain:"«أَحْمَدُ» تبدأ بحرف الألف «أ»."},
+        {p:13,t:"صِل الكلمة بالصورة المناسبة",type:"match",pairs:[["أَحْمَدُ","👦"],["جَدِّي","👴"],["جَدَّتِي","👵"],["خَدِيجَةُ","👧"]],id:"u1_06"},
+        {p:14,t:"رتب الحروف لتكوين كلمة «أَبِي»",type:"order",items:["أ","ب","ي"],id:"u1_07",hint:"🔤 ابدأ بالألف ثم الباء ثم الياء.",explain:"الترتيب: أ ← ب ← ي."},
+        {p:14,t:"رتب الحروف لتكوين كلمة «جَدِّي»",type:"order",items:["ج","د","ي"],id:"u1_08",hint:"🔤 ابدأ بالجيم.",explain:"الترتيب: ج ← د ← ي."},
+        {p:15,t:"اضغط على كل الحروف «م» فقط",type:"tap",items:[{h:"م",k:1},{h:"ب",k:0},{h:"م",k:1},{h:"ر",k:0},{h:"م",k:1},{h:"ل",k:0}],id:"u1_09",hint:"🔍 حرف الميم له ذيل صغير.",explain:"الحروف «م» هي الأول والثالث والخامس."},
+        {p:16,t:"اكتب حرف الميم على النموذج",type:"trace",letter:"م",id:"u1_10"},
+        {p:16,t:"اكتب حرف الباء على النموذج",type:"trace",letter:"ب",id:"u1_11"},
+        {p:18,t:"اقرأ الكلمة واستمع ثم اختر الصحيحة:",type:"read",word:"غُرْفَةُ الْجُلُوسِ",options:["غُرْفَةُ الْجُلُوسِ","مَطْبَخ","حَمَّام","سَرِير"],a:0,id:"u1_12"},
+        {p:19,t:"اقرأ كلمة «خِزَانَة» ثم اختر الحرف الأول:",type:"mc",o:["خ","ز","ن","ة"],a:0,id:"u1_13",word:"خِزَانَة",hint:"🔎 اسمع أول صوت.",explain:"«خِزَانَة» تبدأ بحرف الخاء «خ»."},
+        {p:20,t:"اضغط على كل الحروف «د» فقط",type:"tap",items:[{h:"د",k:1},{h:"ذ",k:0},{h:"د",k:1},{h:"ر",k:0},{h:"ز",k:0}],id:"u1_14",hint:"🔍 الدال لا نقطة لها.",explain:"الحروف «د» هي الأول والثالث."},
+        {p:22,t:"أكمل الجملة: «وَضَعَتْ خَدِيجَةُ الصُّحُونَ عَلَى ...»",type:"mc",o:["الْمَائِدَةِ","الْمَطْبَخ","الْحَمَّام","الْكُرْسِيِّ"],a:0,id:"u1_15",hint:"🍽️ أين نضع الصحون قبل الأكل؟",explain:"نضع الصحون على «الْمَائِدَةِ»."}
+      ]
+    },
+    {
+      title: "المحور 2: المدرسة", icon:"🏫", field:"school",
+      qs: [
+        {p:28,t:"ما الحرف الأول في كلمة «مَدْرَسَة»؟",type:"mc",o:["م","د","ر","س"],a:0,id:"u2_01",word:"مَدْرَسَة",hint:"🔎 اسمع أول صوت.",explain:"«مَدْرَسَة» تبدأ بحرف الميم «م»."},
+        {p:29,t:"اختر الكلمة الصحيحة للصورة 📚",type:"mc",o:["كِتَابٌ","قَلَمٌ","دَفْتَرٌ","مِحْفَظَةٌ"],a:0,id:"u2_02",hint:"📚 شيء نقرأ فيه.",explain:"الصورة تعبر عن «كِتَابٌ»."},
+        {p:29,t:"اختر الكلمة الصحيحة للصورة ✏️",type:"mc",o:["قَلَمٌ","كِتَابٌ","مَكْتَبٌ","كُرَّاسٌ"],a:0,id:"u2_03",hint:"✏️ أداة نكتب بها.",explain:"الصورة تعبر عن «قَلَمٌ»."},
+        {p:30,t:"اقرأ كلمة «مُعَلِّمَة» ثم اختر الحرف الأول:",type:"mc",o:["م","ع","ل","ة"],a:0,id:"u2_04",word:"مُعَلِّمَة",hint:"🔎 اسمع أول صوت.",explain:"«مُعَلِّمَة» تبدأ بحرف الميم «م»."},
+        {p:32,t:"اختر الكلمة الصحيحة للصورة 🏫",type:"mc",o:["مَدْرَسَة","مَكْتَبَة","حَدِيقَة","مَلْعَب"],a:0,id:"u2_05",hint:"🏫 المكان الذي نتعلم فيه.",explain:"الصورة تعبر عن «مَدْرَسَة»."},
+        {p:33,t:"صِل الكلمة بالصورة المناسبة",type:"match",pairs:[["كِتَابٌ","📚"],["قَلَمٌ","✏️"],["مِحْفَظَةٌ","🎒"],["مَكْتَبٌ","🪑"]],id:"u2_06"},
+        {p:34,t:"رتب الحروف لتكوين كلمة «مَكْتَب»",type:"order",items:["م","ك","ت","ب"],id:"u2_07",hint:"🔤 ابدأ بالميم.",explain:"الترتيب: م ← ك ← ت ← ب."},
+        {p:35,t:"اضغط على كل الحروف «ن» فقط",type:"tap",items:[{h:"ن",k:1},{h:"ب",k:0},{h:"ن",k:1},{h:"م",k:0},{h:"ن",k:1},{h:"ر",k:0}],id:"u2_08",hint:"🔍 النون لها نقطة فوقها.",explain:"الحروف «ن» هي الأول والثالث والخامس."},
+        {p:36,t:"اكتب حرف النون على النموذج",type:"trace",letter:"ن",id:"u2_09"},
+        {p:36,t:"اكتب حرف الدال على النموذج",type:"trace",letter:"د",id:"u2_10"},
+        {p:37,t:"اقرأ كلمة «دَفْتَر» ثم اختر الحرف الأول:",type:"mc",o:["د","ف","ت","ر"],a:0,id:"u2_11",word:"دَفْتَر",hint:"🔎 اسمع أول صوت.",explain:"«دَفْتَر» تبدأ بحرف الدال «د»."},
+        {p:38,t:"اقرأ الكلمة واستمع ثم اختر الصحيحة:",type:"read",word:"أَدَوَاتِي الْمَدْرَسِيَّة",options:["أَدَوَاتِي الْمَدْرَسِيَّة","كِتَابِي الْجَدِيد","مَدْرَسَتِي الْحَبِيبَة","مُعَلِّمَتِي الْكَرِيمَة"],a:0,id:"u2_12"},
+        {p:40,t:"اضغط على كل الحروف «ر» فقط",type:"tap",items:[{h:"ر",k:1},{h:"ز",k:0},{h:"ر",k:1},{h:"د",k:0},{h:"ذ",k:0}],id:"u2_13",hint:"🔍 الراء لا نقطة لها.",explain:"الحروف «ر» هي الأول والثالث."}
+      ]
+    },
+    {
+      title: "المحور 3: الحي والقرية", icon:"🏘️", field:"village",
+      qs: [
+        {p:44,t:"ما الحرف الأول في كلمة «قَرْيَة»؟",type:"mc",o:["ق","ر","ي","ة"],a:0,id:"u3_01",word:"قَرْيَة",hint:"🔎 اسمع أول صوت.",explain:"«قَرْيَة» تبدأ بحرف القاف «ق»."},
+        {p:44,t:"اختر الكلمة الصحيحة للصورة 🌳",type:"mc",o:["شَجَرَةٌ","زَهْرَةٌ","عُشْبٌ","وَرَقَةٌ"],a:0,id:"u3_02",hint:"🌳 نبات كبير له ساق متينة.",explain:"الصورة تعبر عن «شَجَرَةٌ»."},
+        {p:44,t:"اختر الكلمة الصحيحة للصورة 🐦",type:"mc",o:["عُصْفُورٌ","دِيكٌ","بَطَّةٌ","حَمَامَةٌ"],a:0,id:"u3_03",hint:"🐦 طائر صغير يطير.",explain:"الصورة تعبر عن «عُصْفُورٌ»."},
+        {p:45,t:"اقرأ كلمة «هِلَال» ثم اختر الحرف الأول:",type:"mc",o:["ه","ل","ا","ل"],a:0,id:"u3_04",word:"هِلَال",hint:"🔎 اسمع أول صوت.",explain:"«هِلَال» تبدأ بحرف الهاء «ه»."},
+        {p:47,t:"اختر الكلمة الصحيحة للصورة 🚗",type:"mc",o:["سَيَّارَةٌ","دَرَّاجَةٌ","طَائِرَةٌ","قِطَارٌ"],a:0,id:"u3_05",hint:"🚗 وسيلة نقل بأربع عجلات.",explain:"الصورة تعبر عن «سَيَّارَةٌ»."},
+        {p:48,t:"صِل الكلمة بالصورة المناسبة",type:"match",pairs:[["شَجَرَة","🌳"],["زَهْرَة","🌸"],["جَمَل","🐪"],["حِصَان","🐴"]],id:"u3_06"},
+        {p:49,t:"اضغط على كل الحروف «ح» فقط",type:"tap",items:[{h:"ح",k:1},{h:"خ",k:0},{h:"ح",k:1},{h:"ج",k:0},{h:"ح",k:1}],id:"u3_07",hint:"🔍 الحاء لا نقطة لها.",explain:"الحروف «ح» هي الأول والثالث والخامس."},
+        {p:51,t:"اكتب حرف العين على النموذج",type:"trace",letter:"ع",id:"u3_08"},
+        {p:51,t:"اكتب حرف السين على النموذج",type:"trace",letter:"س",id:"u3_09"},
+        {p:52,t:"اقرأ كلمة «سَمَاء» ثم اختر الحرف الأول:",type:"mc",o:["س","م","ا","ء"],a:0,id:"u3_10",word:"سَمَاء",hint:"🔎 اسمع أول صوت.",explain:"«سَمَاء» تبدأ بحرف السين «س»."},
+        {p:53,t:"اقرأ الكلمة واستمع ثم اختر الصحيحة:",type:"read",word:"الْحَيَاةُ هَادِئَةٌ",options:["الْحَيَاةُ هَادِئَةٌ","الْمَدِينَةُ كَبِيرَةٌ","الْمَزْرَعَةُ وَاسِعَةٌ","الْقَرْيَةُ جَمِيلَةٌ"],a:0,id:"u3_11"},
+        {p:53,t:"اضغط على كل الحروف «ش» فقط",type:"tap",items:[{h:"ش",k:1},{h:"س",k:0},{h:"ش",k:1},{h:"ص",k:0},{h:"ش",k:1}],id:"u3_12",hint:"🔍 الشين لها ثلاث نقاط.",explain:"الحروف «ش» هي الأول والثالث والخامس."}
+      ]
+    },
+    {
+      title: "المحور 4: الرياضة والتنشئة", icon:"⚽", field:"sport",
+      qs: [
+        {p:58,t:"ما الحرف الأول في كلمة «صُورَة»؟",type:"mc",o:["ص","و","ر","ة"],a:0,id:"u4_01",word:"صُورَة",hint:"🔎 اسمع أول صوت.",explain:"«صُورَة» تبدأ بحرف الصاد «ص»."},
+        {p:59,t:"اختر الكلمة الصحيحة للصورة ⚽",type:"mc",o:["كُرَةٌ","مَلْعَبٌ","حَكَمٌ","فَرِيقٌ"],a:0,id:"u4_02",hint:"⚽ شيء مستدير نلعب به.",explain:"الصورة تعبر عن «كُرَةٌ»."},
+        {p:59,t:"اختر الكلمة الصحيحة للصورة 🐸",type:"mc",o:["ضِفْدَعٌ","سَمَكَةٌ","قِطٌّ","حِصَانٌ"],a:0,id:"u4_03",hint:"🐸 حيوان أخضر يقفز.",explain:"الصورة تعبر عن «ضِفْدَعٌ»."},
+        {p:60,t:"اقرأ كلمة «قَلَم» ثم اختر الحرف الأول:",type:"mc",o:["ق","ل","م","ـ"],a:0,id:"u4_04",word:"قَلَم",hint:"🔎 اسمع أول صوت.",explain:"«قَلَم» تبدأ بحرف القاف «ق»."},
+        {p:61,t:"اضغط على كل الحروف «ض» فقط",type:"tap",items:[{h:"ض",k:1},{h:"ص",k:0},{h:"ض",k:1},{h:"ط",k:0},{h:"ض",k:1}],id:"u4_05",hint:"🔍 الضاد لها نقطة.",explain:"الحروف «ض» هي الأول والثالث والخامس."},
+        {p:62,t:"صِل الكلمة بالصورة المناسبة",type:"match",pairs:[["كُرَة","⚽"],["كِتَاب","📚"],["حِصَان","🐴"],["قَلَم","✏️"]],id:"u4_06"},
+        {p:63,t:"اكتب حرف القاف على النموذج",type:"trace",letter:"ق",id:"u4_07"},
+        {p:63,t:"اكتب حرف الطاء على النموذج",type:"trace",letter:"ط",id:"u4_08"},
+        {p:64,t:"اقرأ كلمة «كَأْس» ثم اختر الحرف الأول:",type:"mc",o:["ك","أ","س","ـ"],a:0,id:"u4_09",word:"كَأْس",hint:"🔎 اسمع أول صوت.",explain:"«كَأْس» تبدأ بحرف الكاف «ك»."},
+        {p:66,t:"اضغط على كل الحروف «ظ» فقط",type:"tap",items:[{h:"ظ",k:1},{h:"ط",k:0},{h:"ظ",k:1},{h:"ز",k:0},{h:"ظ",k:1}],id:"u4_10",hint:"🔍 الظاء لها نقطة.",explain:"الحروف «ظ» هي الأول والثالث والخامس."},
+        {p:67,t:"اقرأ الكلمة واستمع ثم اختر الصحيحة:",type:"read",word:"مُبَارَاةٌ فِي كُرَةِ الْقَدَمِ",options:["مُبَارَاةٌ فِي كُرَةِ الْقَدَمِ","لَعِبَ الْأَطْفَالُ","فَازَ الْفَرِيقُ","سَبَاقٌ فِي الْجَرْيِ"],a:0,id:"u4_11"},
+        {p:60,t:"اضغط على كل الحروف «ص» فقط",type:"tap",items:[{h:"ص",k:1},{h:"س",k:0},{h:"ص",k:1},{h:"ض",k:0},{h:"ص",k:1}],id:"u4_12",hint:"🔍 الصاد لا نقطة لها.",explain:"الحروف «ص» هي الأول والثالث والخامس."}
+      ]
+    },
+    {
+      title: "المحور 5: البيئة والطبيعة", icon:"🌳", field:"nature",
+      qs: [
+        {p:73,t:"ما الحرف الأول في كلمة «ثِيَاب»؟",type:"mc",o:["ث","ي","ا","ب"],a:0,id:"u5_01",word:"ثِيَاب",hint:"🔎 اسمع أول صوت.",explain:"«ثِيَاب» تبدأ بحرف الثاء «ث»."},
+        {p:73,t:"اختر الكلمة الصحيحة للصورة 🐺",type:"mc",o:["ذِئْبٌ","ثَعْلَبٌ","أَسَدٌ","كَلْبٌ"],a:0,id:"u5_02",hint:"🐺 حيوان بري يشبه الكلب.",explain:"الصورة تعبر عن «ذِئْبٌ»."},
+        {p:74,t:"اختر الكلمة الصحيحة للصورة 🌸",type:"mc",o:["زَهْرَةٌ","وَرْدَةٌ","شَجَرَةٌ","نَبْتَةٌ"],a:0,id:"u5_03",hint:"🌸 نبات جميل ملون.",explain:"الصورة تعبر عن «زَهْرَةٌ»."},
+        {p:75,t:"اقرأ كلمة «غُرَاب» ثم اختر الحرف الأول:",type:"mc",o:["غ","ر","ا","ب"],a:0,id:"u5_04",word:"غُرَاب",hint:"🔎 اسمع أول صوت.",explain:"«غُرَاب» تبدأ بحرف الغين «غ»."},
+        {p:76,t:"اضغط على كل الحروف «ث» فقط",type:"tap",items:[{h:"ث",k:1},{h:"ت",k:0},{h:"ث",k:1},{h:"س",k:0},{h:"ث",k:1}],id:"u5_05",hint:"🔍 الثاء لها ثلاث نقاط.",explain:"الحروف «ث» هي الأول والثالث والخامس."},
+        {p:77,t:"صِل الكلمة بالصورة المناسبة",type:"match",pairs:[["شَجَرَة","🌳"],["زَهْرَة","🌸"],["غُرَاب","🐦"],["خُبْز","🍞"]],id:"u5_06"},
+        {p:78,t:"اكتب حرف الزاي على النموذج",type:"trace",letter:"ز",id:"u5_07"},
+        {p:79,t:"اضغط على كل الحروف «ذ» فقط",type:"tap",items:[{h:"ذ",k:1},{h:"ز",k:0},{h:"ذ",k:1},{h:"د",k:0},{h:"ذ",k:1}],id:"u5_08",hint:"🔍 الذال لها نقطة.",explain:"الحروف «ذ» هي الأول والثالث والخامس."},
+        {p:80,t:"اقرأ كلمة «خُبْز» ثم اختر الحرف الأول:",type:"mc",o:["خ","ب","ز","ـ"],a:0,id:"u5_09",word:"خُبْز",hint:"🔎 اسمع أول صوت.",explain:"«خُبْز» تبدأ بحرف الخاء «خ»."},
+        {p:81,t:"اقرأ الكلمة واستمع ثم اختر الصحيحة:",type:"read",word:"فِي حَدِيقَةِ الْمَنْزِلِ",options:["فِي حَدِيقَةِ الْمَنْزِلِ","فِي الْغَابَةِ","فِي الْقَرْيَةِ","فِي الْجَبَلِ"],a:0,id:"u5_10"},
+        {p:82,t:"اضغط على كل الحروف «غ» فقط",type:"tap",items:[{h:"غ",k:1},{h:"ع",k:0},{h:"غ",k:1},{h:"خ",k:0},{h:"غ",k:1}],id:"u5_11",hint:"🔍 الغين لها نقطة.",explain:"الحروف «غ» هي الأول والثالث والخامس."},
+        {p:82,t:"اضغط على كل الحروف «خ» فقط",type:"tap",items:[{h:"خ",k:1},{h:"ح",k:0},{h:"خ",k:1},{h:"ج",k:0},{h:"خ",k:1}],id:"u5_12",hint:"🔍 الخاء لها نقطة.",explain:"الحروف «خ» هي الأول والثالث والخامس."}
+      ]
+    },
+    {
+      title: "المحور 6: التغذية والصحة", icon:"🍎", field:"health",
+      qs: [
+        {p:87,t:"ما الحرف الأول في كلمة «فَاكِهَة»؟",type:"mc",o:["ف","ا","ك","ه"],a:0,id:"u6_01",word:"فَاكِهَة",hint:"🔎 اسمع أول صوت.",explain:"«فَاكِهَة» تبدأ بحرف الفاء «ف»."},
+        {p:88,t:"اختر الكلمة الصحيحة للصورة 🍎",type:"mc",o:["تُفَّاحَةٌ","مَوْزَةٌ","بُرْتُقَالَةٌ","عِنَبٌ"],a:0,id:"u6_02",hint:"🍎 فاكهة حمراء مستديرة.",explain:"الصورة تعبر عن «تُفَّاحَةٌ»."},
+        {p:88,t:"اختر الكلمة الصحيحة للصورة 🍌",type:"mc",o:["مَوْزٌ","تُفَّاحٌ","عِنَبٌ","خَوْخٌ"],a:0,id:"u6_03",hint:"🍌 فاكهة صفراء طويلة.",explain:"الصورة تعبر عن «مَوْزٌ»."},
+        {p:89,t:"اقرأ كلمة «ثَوْب» ثم اختر الحرف الأول:",type:"mc",o:["ث","و","ب","ـ"],a:0,id:"u6_04",word:"ثَوْب",hint:"🔎 اسمع أول صوت.",explain:"«ثَوْب» تبدأ بحرف الثاء «ث»."},
+        {p:90,t:"اضغط على كل الحروف «ف» فقط",type:"tap",items:[{h:"ف",k:1},{h:"ق",k:0},{h:"ف",k:1},{h:"و",k:0},{h:"ف",k:1}],id:"u6_05",hint:"🔍 الفاء لها نقطة واحدة.",explain:"الحروف «ف» هي الأول والثالث والخامس."},
+        {p:91,t:"صِل الكلمة بالصورة المناسبة",type:"match",pairs:[["تُفَّاحَة","🍎"],["مَوْز","🍌"],["حَلِيب","🥛"],["خُبْز","🍞"]],id:"u6_06"},
+        {p:92,t:"اكتب حرف الفاء على النموذج",type:"trace",letter:"ف",id:"u6_07"},
+        {p:92,t:"اكتب حرف الواو على النموذج",type:"trace",letter:"و",id:"u6_08"},
+        {p:93,t:"اقرأ كلمة «يَد» ثم اختر الحرف الأول:",type:"mc",o:["ي","د","ـ","ـ"],a:0,id:"u6_09",word:"يَد",hint:"🔎 اسمع أول صوت.",explain:"«يَد» تبدأ بحرف الياء «ي»."},
+        {p:94,t:"اضغط على كل الحروف «ي» فقط",type:"tap",items:[{h:"ي",k:1},{h:"ب",k:0},{h:"ي",k:1},{h:"ت",k:0},{h:"ي",k:1}],id:"u6_10",hint:"🔍 الياء لها نقطتان تحت.",explain:"الحروف «ي» هي الأول والثالث والخامس."},
+        {p:94,t:"اقرأ الكلمة واستمع ثم اختر الصحيحة:",type:"read",word:"الْغِذَاءُ الصِّحِّيُّ مُفِيدٌ",options:["الْغِذَاءُ الصِّحِّيُّ مُفِيدٌ","الْحَلْوِيَّاتُ لَذِيذَةٌ","الْفَاكِهَةُ طَيِّبَةٌ","الْخُضْرَاتُ نَافِعَةٌ"],a:0,id:"u6_11"},
+        {p:93,t:"اضغط على كل الحروف «و» فقط",type:"tap",items:[{h:"و",k:1},{h:"ي",k:0},{h:"و",k:1},{h:"ف",k:0},{h:"و",k:1}],id:"u6_12",hint:"🔍 الواو ليس لها نقاط.",explain:"الحروف «و» هي الأول والثالث والخامس."}
+      ]
+    },
+    {
+      title: "المحور 7: التواصل", icon:"💻", field:"communication",
+      intro: {
+        title:"🌙☀️ «ال» القمرية و«ال» الشمسية",
+        body:`<div style="background:linear-gradient(135deg,#E1F5FE,#F3E5F5);border:2.5px solid var(--purple-light);border-radius:20px;padding:16px;margin-bottom:14px;">
+          <h3 style="color:var(--purple);font-size:1.05rem;margin-bottom:10px;font-weight:900;">📖 قاعدة مهمة قبل أن نبدأ</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <div style="background:linear-gradient(135deg,#FFF8E1,#FFE0B2);border:2px solid #FFD93D;border-radius:14px;padding:12px;text-align:center;font-size:0.85rem;font-weight:700;line-height:1.5;">
+              <span style="font-size:2rem;display:block;margin-bottom:4px;">🌙</span>
+              <b>القمرية</b><br>اللام <b>تُنطَق</b> بوضوح.<br>مثل: الْقَمَر
+            </div>
+            <div style="background:linear-gradient(135deg,#FFF3E0,#FFCC80);border:2px solid #FFA45B;border-radius:14px;padding:12px;text-align:center;font-size:0.85rem;font-weight:700;line-height:1.5;">
+              <span style="font-size:2rem;display:block;margin-bottom:4px;">☀️</span>
+              <b>الشمسية</b><br>اللام <b>تختفي</b> ويُشدَّد الحرف.<br>مثل: الشَّمْس
+            </div>
+          </div>
+          <p style="margin-top:12px;font-size:0.85rem;color:var(--text-soft);line-height:1.7;text-align:center;">
+            💡 اسمع الكلمة! إذا سمعت <b>اللام</b> بوضوح فهي قمرية. إذا اختفت وشدَّدت الحرف بعدها فهي شمسية.
+          </p>
+        </div>`
+      },
+      qs: [
+        {p:97,t:"ما «ال» في كلمة «الْحَاسُوب»؟",type:"mc",o:["قمرية","شمسية"],a:0,id:"u7_01",word:"الْحَاسُوب",listenText:"الْحَاسُوب",hint:"🌙 القمرية: ننطق اللام بوضوح. اسمع الكلمة!",explain:"نطقناها «أَلْ-حاسوب»: اللام واضحة → قمرية 🌙."},
+        {p:98,t:"ما «ال» في كلمة «الشَّمْس»؟",type:"mc",o:["شمسية","قمرية"],a:0,id:"u7_02",word:"الشَّمْس",listenText:"الشَّمْس",hint:"☀️ الشمسية: اللام تختبئ ويُشدَّد الحرف بعدها.",explain:"نطقناها «أَشْ-شَمْس»: اللام اختفت → شمسية ☀️."},
+        {p:98,t:"اختر الكلمة الصحيحة للصورة 💻",type:"mc",o:["حَاسُوبٌ","هَاتِفٌ","تِلْفَازٌ","مِذْيَاعٌ"],a:0,id:"u7_03",hint:"💻 جهاز نستعمله للكتابة والبحث.",explain:"الصورة تعبر عن «حَاسُوبٌ»."},
+        {p:99,t:"اضغط على كل الكلمات التي تبدأ بـ «ال» القمرية",type:"tap",items:[{h:"الْقَمَر",k:1},{h:"الشَّمْس",k:0},{h:"الْكِتَاب",k:1},{h:"الطَّائِرَة",k:0},{h:"الْبَاب",k:1}],id:"u7_04",hint:"🌙 القمرية: نسمع اللام.",explain:"«الْقَمَر» و«الْكِتَاب» و«الْبَاب»: اللام واضحة → قمرية 🌙."},
+        {p:99,t:"اضغط على كل الكلمات التي تبدأ بـ «ال» الشمسية",type:"tap",items:[{h:"الشَّمْس",k:1},{h:"الْقَمَر",k:0},{h:"الطَّائِرَة",k:1},{h:"الْكِتَاب",k:0},{h:"النَّجْم",k:1}],id:"u7_05",hint:"☀️ الشمسية: اللام تختبئ.",explain:"«الشَّمْس» و«الطَّائِرَة» و«النَّجْم»: اللام اختبأت → شمسية ☀️."},
+        {p:101,t:"ما «ال» في كلمة «الطَّائِرَة»؟",type:"mc",o:["شمسية","قمرية"],a:0,id:"u7_06",word:"الطَّائِرَة",listenText:"الطَّائِرَة",hint:"☀️ هل تسمع اللام أم اختفت؟",explain:"نطقناها «أَطْ-طَائِرَة»: اللام اختفت → شمسية ☀️."},
+        {p:101,t:"ما «ال» في كلمة «الْمَطَار»؟",type:"mc",o:["قمرية","شمسية"],a:0,id:"u7_07",word:"الْمَطَار",listenText:"الْمَطَار",hint:"🌙 هل تسمع اللام بوضوح؟",explain:"نطقناها «أَلْ-مَطَار»: اللام واضحة → قمرية 🌙."},
+        {p:102,t:"صِل الكلمة بالصورة المناسبة",type:"match",pairs:[["حَاسُوب","💻"],["هَاتِف","📱"],["تِلْفَاز","📺"],["كِتَاب","📚"]],id:"u7_08"},
+        {p:103,t:"اقرأ الكلمة واستمع ثم اختر الصحيحة:",type:"read",word:"أَحْكِي لَكُمْ قِصَصًا",options:["أَحْكِي لَكُمْ قِصَصًا","أَشْرَحُ الدَّرْسَ","أَقْرَأُ الْكِتَابَ","أَكْتُبُ الرِّسَالَةَ"],a:0,id:"u7_09"},
+        {p:104,t:"ما اسم الجهاز الذي يظهر صوراً وأصواتاً؟",type:"mc",o:["التِّلْفَاز","الْحَاسُوب","الْهَاتِف","الْمِذْيَاع"],a:0,id:"u7_10",hint:"📺 جهاز نشاهد عليه الرسوم المتحركة.",explain:"إنه «التِّلْفَاز»."},
+        {p:104,t:"اضغط على أدوات التواصل فقط",type:"tap",items:[{h:"هَاتِف",k:1},{h:"كُرْسِيّ",k:0},{h:"حَاسُوب",k:1},{h:"طَاوِلَة",k:0},{h:"تِلْفَاز",k:1}],id:"u7_11",hint:"📱 اختر الأدوات التي نتواصل بها.",explain:"هَاتِف، حَاسُوب، تِلْفَاز = أدوات تواصل."},
+        {p:100,t:"اضغط على كل «ال» القمرية",type:"tap",items:[{h:"الْوَلَد",k:1},{h:"الشَّجَرَة",k:0},{h:"الْجَمَل",k:1},{h:"الرَّجُل",k:0},{h:"الْعَيْن",k:1}],id:"u7_12",hint:"🌙 القمرية: نسمع اللام.",explain:"الْوَلَد، الْجَمَل، الْعَيْن: اللام واضحة → قمرية 🌙."}
+      ]
+    },
+    {
+      title: "المحور 8: المؤثرات الحضارية", icon:"🕌", field:"civilization",
+      qs: [
+        {p:111,t:"ما الحرف الأول في كلمة «عِيد»؟",type:"mc",o:["ع","ي","د","ـ"],a:0,id:"u8_01",word:"عِيد",hint:"🔎 اسمع أول صوت.",explain:"«عِيد» تبدأ بحرف العين «ع»."},
+        {p:111,t:"اختر الكلمة الصحيحة للصورة 🌙",type:"mc",o:["هِلَال","شَمْس","نَجْم","قَمَر"],a:0,id:"u8_02",hint:"🌙 شكل القمر في أول الشهر.",explain:"الصورة تعبر عن «هِلَال»."},
+        {p:112,t:"في أي شهر يصوم المسلمون؟",type:"mc",o:["رَمَضَان","شَعْبَان","رَجَب","مُحَرَّم"],a:0,id:"u8_03",hint:"🌙 الشهر التاسع الهجري.",explain:"شهر الصيام هو «رَمَضَان»."},
+        {p:114,t:"ماذا نقول قبل الأكل؟",type:"mc",o:["بِسْمِ اللَّه","الْحَمْدُ لِلَّه","سُبْحَانَ اللَّه","اللَّهُ أَكْبَر"],a:0,id:"u8_04",hint:"🍽️ نبدأ به اسم الله.",explain:"قبل الأكل نقول «بِسْمِ اللَّه»."},
+        {p:114,t:"ماذا نقول بعد الأكل؟",type:"mc",o:["الْحَمْدُ لِلَّه","بِسْمِ اللَّه","سُبْحَانَ اللَّه","لَا إِلَهَ إِلَّا اللَّه"],a:0,id:"u8_05",hint:"🙏 نشكر الله على النعمة.",explain:"بعد الأكل نقول «الْحَمْدُ لِلَّه»."},
+        {p:119,t:"في أي يوم نحتفل بعيد الاستقلال في الجزائر؟",type:"mc",o:["5 جُوِيْلِيَة","1 مَاي","1 نُوفَمْبَر","19 مَارْس"],a:0,id:"u8_06",hint:"🇩🇿 تاريخ استقلال الجزائر سنة 1962.",explain:"عيد الاستقلال هو «5 جُوِيْلِيَة»."},
+        {p:124,t:"اقرأ الكلمة واستمع ثم اختر الصحيحة:",type:"read",word:"يَا فَرْحَتِي بِالْعِيدِ",options:["يَا فَرْحَتِي بِالْعِيدِ","أَهْلًا بِالْعَائِلَةِ","مَرْحَبًا بِكُمْ","سَعِيدٌ بِاللِّقَاءِ"],a:0,id:"u8_07"},
+        {p:119,t:"صِل الكلمة بالصورة المناسبة",type:"match",pairs:[["هِلَال","🌙"],["مَسْجِد","🕌"],["عِيد","🎉"],["قَمَر","🌕"]],id:"u8_08"},
+        {p:118,t:"اضغط على كل الحروف «ع» فقط",type:"tap",items:[{h:"ع",k:1},{h:"غ",k:0},{h:"ع",k:1},{h:"ج",k:0},{h:"ع",k:1}],id:"u8_09",hint:"🔍 العين لا نقطة لها.",explain:"الحروف «ع» هي الأول والثالث والخامس."},
+        {p:122,t:"اضغط على كلمة «الْحَمْدُ»",type:"tap",items:[{h:"الْحَمْدُ",k:1},{h:"الْكِتَاب",k:0},{h:"الشَّمْس",k:0}],id:"u8_10",hint:"🔍 الحمد كلمة نشكر بها الله.",explain:"كلمة «الْحَمْدُ» هي الأولى."},
+        {p:121,t:"اكتب حرف العين على النموذج",type:"trace",letter:"ع",id:"u8_11"},
+        {p:122,t:"ما أول كلمة في سورة الفاتحة بعد البسملة؟",type:"mc",o:["الْحَمْدُ","الرَّحْمَن","مَالِك","إِيَّاكَ"],a:0,id:"u8_12",hint:"📖 أول آية في سورة الفاتحة.",explain:"أول كلمة هي «الْحَمْدُ»."}
+      ]
+    }
+  ]
+};
+
+const FIELDCOL = {
+  family:['#EC407A','#F8BBD0'], school:['#5C6BC0','#C5CAE9'],
+  village:['#26A69A','#B2DFDB'], sport:['#FB8C00','#FFE0B2'],
+  nature:['#43A047','#C8E6C9'], health:['#E53935','#FFCDD2'],
+  communication:['#8E24AA','#E1BEE7'], civilization:['#00897B','#B2DFDB']
+};
+
+const ARABIC_LETTERS = [
+  {letter:"ا",name:"أَلِف"},{letter:"ب",name:"بَاء"},{letter:"ت",name:"تَاء"},{letter:"ث",name:"ثَاء"},{letter:"ج",name:"جِيم"},
+  {letter:"ح",name:"حَاء"},{letter:"خ",name:"خَاء"},{letter:"د",name:"دَال"},{letter:"ذ",name:"ذَال"},{letter:"ر",name:"رَاء"},
+  {letter:"ز",name:"زَاي"},{letter:"س",name:"سِين"},{letter:"ش",name:"شِين"},{letter:"ص",name:"صَاد"},{letter:"ض",name:"ضَاد"},
+  {letter:"ط",name:"طَاء"},{letter:"ظ",name:"ظَاء"},{letter:"ع",name:"عَيْن"},{letter:"غ",name:"غَيْن"},{letter:"ف",name:"فَاء"},
+  {letter:"ق",name:"قَاف"},{letter:"ك",name:"كَاف"},{letter:"ل",name:"لَام"},{letter:"م",name:"مِيم"},{letter:"ن",name:"نُون"},
+  {letter:"ه",name:"هَاء"},{letter:"و",name:"وَاو"},{letter:"ي",name:"يَاء"}
+];
+
+const READING_WORDS = [
+  {word:"مَرْحَبًا",emoji:"👋",options:["مَرْحَبًا","مَكْتَبٌ","مُعَلِّمَةٌ","مِحْفَظَةٌ"]},
+  {word:"أَحْمَدُ",emoji:"👦",options:["أَحْمَدُ","خَدِيجَةُ","بِلَالٌ","جَدِّي"]},
+  {word:"جَدَّتِي",emoji:"👵",options:["جَدَّتِي","جَدِّي","أُمِّي","أَبِي"]},
+  {word:"مُعَلِّمَةٌ",emoji:"👩‍🏫",options:["مُعَلِّمَةٌ","مُدِيرٌ","نَجَّارٌ","طَبِيبٌ"]},
+  {word:"مَدْرَسَةٌ",emoji:"🏫",options:["مَدْرَسَةٌ","مَكْتَبَةٌ","مَلْعَبٌ","حَدِيقَةٌ"]},
+  {word:"حِصَانٌ",emoji:"🐴",options:["حِصَانٌ","قِطٌّ","كَلْبٌ","أَرْنَبٌ"]},
+  {word:"سَمَاءٌ",emoji:"🌤️",options:["سَمَاءٌ","أَرْضٌ","بَحْرٌ","جَبَلٌ"]},
+  {word:"شَجَرَةٌ",emoji:"🌳",options:["شَجَرَةٌ","زَهْرَةٌ","وَرَقَةٌ","ثَمَرَةٌ"]},
+  {word:"تُفَّاحَةٌ",emoji:"🍎",options:["تُفَّاحَةٌ","مَوْزَةٌ","بُرْتُقَالَةٌ","عِنَبٌ"]},
+  {word:"عُصْفُورٌ",emoji:"🐦",options:["عُصْفُورٌ","سَمَكَةٌ","فَرَاشَةٌ","نَحْلَةٌ"]},
+  {word:"كِتَابٌ",emoji:"📚",options:["كِتَابٌ","قَلَمٌ","دَفْتَرٌ","مِحْفَظَةٌ"]},
+  {word:"حَاسُوبٌ",emoji:"💻",options:["حَاسُوبٌ","هَاتِفٌ","تِلْفَازٌ","مِذْيَاعٌ"]},
+  {word:"زَهْرَةٌ",emoji:"🌸",options:["زَهْرَةٌ","شَجَرَةٌ","عُشْبٌ","وَرَقَةٌ"]},
+  {word:"قَمَرٌ",emoji:"🌙",options:["قَمَرٌ","شَمْسٌ","نَجْمٌ","سَحَابٌ"]},
+  {word:"جَمَلٌ",emoji:"🐪",options:["جَمَلٌ","فِيلٌ","أَسَدٌ","حِمَارٌ"]},
+  {word:"مَاءٌ",emoji:"💧",options:["مَاءٌ","حَلِيبٌ","عَصِيرٌ","شَايٌ"]},
+  {word:"بَيْتٌ",emoji:"🏠",options:["بَيْتٌ","مَدْرَسَةٌ","مَسْجِدٌ","حَدِيقَةٌ"]},
+  {word:"قَلَمٌ",emoji:"✏️",options:["قَلَمٌ","كِتَابٌ","دَفْتَرٌ","مِمْحَاةٌ"]}
+];
+
+const MATCH_DATA = [
+  {word:"قَمَرٌ",emoji:"🌙"},{word:"شَمْسٌ",emoji:"☀️"},{word:"نَجْمَةٌ",emoji:"⭐"},
+  {word:"زَهْرَةٌ",emoji:"🌸"},{word:"شَجَرَةٌ",emoji:"🌳"},{word:"تُفَّاحَةٌ",emoji:"🍎"},
+  {word:"عُصْفُورٌ",emoji:"🐦"},{word:"سَمَكَةٌ",emoji:"🐟"},{word:"قِطٌّ",emoji:"🐱"},
+  {word:"كَلْبٌ",emoji:"🐶"},{word:"حِصَانٌ",emoji:"🐴"},{word:"فَرَاشَةٌ",emoji:"🦋"},
+  {word:"كِتَابٌ",emoji:"📚"},{word:"قَلَمٌ",emoji:"✏️"},{word:"حَاسُوبٌ",emoji:"💻"},{word:"جَمَلٌ",emoji:"🐪"}
+];
+
+const QUIZ_QUESTIONS = [
+  {q:"ما هو الحرف الأول في كلمة «مَرْحَبًا»؟",options:["م","ب","ح","ر"],correct:0},
+  {q:"أي كلمة تبدأ بحرف الباء؟",options:["بَابٌ","تَاجٌ","جَمَلٌ","دَارٌ"],correct:0},
+  {q:"ما هي الكلمة التي تعني «mother»؟",options:["أُمِّي","أَبِي","أَخِي","جَدِّي"],correct:0},
+  {q:"ما هو الحرف الأخير في كلمة «كِتَاب»؟",options:["ب","ك","ت","ا"],correct:0},
+  {q:"أي كلمة تبدأ بحرف الشين؟",options:["شَمْس","قَمَر","نَجْم","بَحْر"],correct:0},
+  {q:"ما هي فاكهة لونها أصفر؟",options:["المَوْز","التُّفَّاح","العِنَب","البَطِّيخ"],correct:0},
+  {q:"أين نضع الأقلام؟",options:["المِحْفَظَة","المَطْبَخ","الحَمَّام","الحَدِيقَة"],correct:0},
+  {q:"ماذا نقول قبل الأكل؟",options:["بِسْمِ اللَّه","الحَمْدُ لِلَّه","سُبْحَانَ اللَّه","اللَّهُ أَكْبَر"],correct:0},
+  {q:"ماذا نقول بعد الأكل؟",options:["الحَمْدُ لِلَّه","بِسْمِ اللَّه","سُبْحَانَ اللَّه","لَا إِلَهَ إِلَّا اللَّه"],correct:0},
+  {q:"كم عدد الصلوات في اليوم؟",options:["خَمْس","ثَلَاث","سَبْع","أَرْبَع"],correct:0},
+  {q:"ما هي أول سورة في القرآن الكريم؟",options:["الفَاتِحَة","النَّاس","الإِخْلَاص","الفَلَق"],correct:0},
+  {q:"في أي شهر يصوم المسلمون؟",options:["رَمَضَان","شَعْبَان","رَجَب","مُحَرَّم"],correct:0},
+  {q:"كم عدد أيام الأسبوع؟",options:["سَبْعَة","خَمْسَة","سِتَّة","ثَمَانِيَة"],correct:0},
+  {q:"ما هو لون السماء؟",options:["أَزْرَق","أَحْمَر","أَخْضَر","أَصْفَر"],correct:0},
+  {q:"أي حيوان يعيش في الصحراء؟",options:["الجَمَل","السَّمَكَة","الدُّبّ","البَطَّة"],correct:0}
+];
+
+function hashStr(s){ let x = 7; for(let i=0;i<s.length;i++) x = (x*31 + s.charCodeAt(i)) >>> 0; return x; }
+function shuffle(arr){ const a = arr.slice(); for(let i = a.length-1; i>0; i--){ const j = Math.floor(Math.random()*(i+1)); [a[i],a[j]] = [a[j],a[i]]; } return a; }
+function seededShuffle(n, seed){ const idx = Array.from({length:n},(_,i)=>i); if(n<2) return idx; let s = (seed & 0x7fffffff) + 1; const nx = () => (s = (s*1103515245 + 12345) & 0x7fffffff); for(let i = n-1; i>0; i--){ const j = nx() % (i+1); [idx[i],idx[j]] = [idx[j],idx[i]]; } return idx; }
+function solutionText(q){
+  switch(q.type){
+    case 'mc': case 'read': return (q.o || q.options)[q.a];
+    case 'trace': return `حرف ${q.letter}`;
+    case 'match': return q.pairs.map(p => `${p[0]} = ${p[1]}`).join(' ، ');
+    case 'order': return q.items.join(' ← ');
+    case 'tap': return q.items.filter(i => i.k === 1).map(i => i.h).join(' ، ');
+  }
+  return '';
+}
+function splitAl(word){ if(!word || !word.startsWith('ال')) return null; return { alPart: word.slice(0,2), rest: word.slice(2), full: word }; }
+
+const KEY = 'loghati.v6';
+const BACKUP_KEY = 'loghati.v6.backup';
+const todayStr = (d = new Date()) => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const DEFAULTS = () => ({name:'',stars:0,done:{},mistakes:{},best:{},streak:0,lastDay:'',daily:{day:'',stars:0},asked:false,version:6});
+let S = DEFAULTS();
+let saveStatusTimer;
+function setSaveStatus(state, msg){
+  const el = document.getElementById('saveStatus'); if(!el) return;
+  el.classList.remove('hidden','ok','err','fade');
+  el.textContent = msg || (state==='ok'?'✅ تم الحفظ':'⚠️ فشل الحفظ');
+  el.classList.add(state==='ok'?'ok':'err');
+  clearTimeout(saveStatusTimer);
+  saveStatusTimer = setTimeout(() => el.classList.add('fade'), 2000);
+}
+function loadState(){
+  try{ const raw = localStorage.getItem(KEY); if(raw){ S = mergeState(JSON.parse(raw)); return {ok:true}; } }
+  catch(e){ try{ const b = localStorage.getItem(BACKUP_KEY); if(b){ S = mergeState(JSON.parse(b)); return {ok:true}; } }catch(e2){} return {ok:false}; }
+  return {ok:true};
+}
+function mergeState(o){
+  const d = DEFAULTS(); if(!o || typeof o !== 'object') return d;
+  d.name = typeof o.name === 'string' ? o.name.slice(0,20) : '';
+  d.stars = Number.isFinite(+o.stars) ? Math.max(0,Math.floor(+o.stars)) : 0;
+  d.streak = Number.isFinite(+o.streak) ? Math.max(0,Math.floor(+o.streak)) : 0;
+  d.lastDay = typeof o.lastDay === 'string' ? o.lastDay : '';
+  d.asked = !!o.asked;
+  for(const k of ['done','mistakes']) if(o[k] && typeof o[k] === 'object') for(const id in o[k]) if(o[k][id]) d[k][id] = 1;
+  if(o.best && typeof o.best === 'object') for(const k in o.best) d.best[k] = +o.best[k] || 0;
+  if(o.daily && typeof o.daily === 'object') d.daily = {day:String(o.daily.day||''),stars:+o.daily.stars || 0};
+  return d;
+}
+function saveState(){
+  try{ const prev = localStorage.getItem(KEY); if(prev) localStorage.setItem(BACKUP_KEY, prev); localStorage.setItem(KEY, JSON.stringify(S)); setSaveStatus('ok'); return true; }
+  catch(e){ setSaveStatus('err'); return false; }
+}
+function recordAttempt(id, outcome){
+  const day = todayStr();
+  if(S.daily.day !== day) S.daily = {day, stars:0};
+  if(outcome === 'first-try' || outcome === 'eventual'){ S.done[id] = 1; delete S.mistakes[id]; }
+  else if(outcome === 'revealed' || outcome === 'skipped'){ S.mistakes[id] = 1; }
+  if(S.lastDay !== day){ const y = new Date(); y.setDate(y.getDate()-1); S.streak = S.lastDay === todayStr(y) ? S.streak+1 : 1; S.lastDay = day; }
+  saveState();
+}
+function addStars(n){ S.stars += n; S.daily.stars += n; saveState(); }
+
+const Voice = {
+  voice:null, checked:false,
+  pick(){ try{ const vs = speechSynthesis.getVoices(); this.voice = vs.find(v => /^ar/i.test(v.lang)) || null; this.checked = true; }catch(e){ this.checked = true; } },
+  speak(text){
+    if(!('speechSynthesis' in window)) return;
+    const clean = String(text).replace(/\s+/g,' ').trim(); if(!clean) return;
+    try{ speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(clean); if(!this.checked) this.pick(); u.lang = this.voice ? this.voice.lang : 'ar-SA'; if(this.voice) u.voice = this.voice; u.rate = 0.8; u.pitch = 1.05; speechSynthesis.speak(u); }catch(e){}
+  },
+  stop(){ try{ speechSynthesis.cancel(); }catch(e){} }
+};
+try{ if('speechSynthesis' in window){ speechSynthesis.addEventListener('voiceschanged', () => Voice.pick()); Voice.pick(); } }catch(e){}
+
+let toastTimeout;
+function showToast(msg){
+  const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastTimeout); toastTimeout = setTimeout(() => t.classList.remove('show'), 2400);
+}
+function confetti(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const cv = document.getElementById('confetti'), cx = cv.getContext('2d');
+  cv.width = innerWidth; cv.height = innerHeight; cv.classList.remove('hidden');
+  const cols = ['#FF6FB5','#9B59FF','#3DD9B0','#FFD93D','#5EC8FF','#FFA45B'];
+  const ps = Array.from({length:110}, () => ({x:Math.random()*cv.width,y:-20-Math.random()*cv.height*0.5,r:4+Math.random()*6,c:cols[Math.floor(Math.random()*cols.length)],vy:2+Math.random()*3.5,vx:-1.5+Math.random()*3,a:Math.random()*6}));
+  let f = 0;
+  (function loop(){
+    cx.clearRect(0,0,cv.width,cv.height);
+    ps.forEach(p => { p.y += p.vy; p.x += p.vx + Math.sin((f+p.a*10)/15); p.a += 0.1; cx.fillStyle = p.c; cx.fillRect(p.x,p.y,p.r,p.r*1.6); });
+    if(++f < 170) requestAnimationFrame(loop); else cv.classList.add('hidden');
+  })();
+}
+
+const MAX_TRIES = 3, MAX_SKIPS = 3;
+class Session {
+  constructor({key, title, list, field='general'}){
+    Object.assign(this,{key,title,list,field,i:0,tries:0,firstTryCorrect:0,eventualCorrect:0,revealedCount:0,skippedCount:0,sstars:0,skips:0,locked:false,revealed:false,finished:false,last:null,fb:null,fbIsExplain:false,run:0,starsAtStart:S.stars});
+  }
+  get cur(){ return this.list[this.i]; }
+  get isLast(){ return this.i >= this.list.length - 1; }
+  get pct(){ const r = this.firstTryCorrect + this.eventualCorrect; return Math.floor(r*100/this.list.length); }
+  get rating(){ const p = this.pct; return p>=90?3:p>=60?2:p>=30?1:0; }
+  submit(ok){
+    if(this.locked || this.finished) return;
+    if(ok){
+      const earned = this.tries===0?3:this.tries===1?2:1;
+      if(this.tries===0) this.firstTryCorrect++; else this.eventualCorrect++;
+      this.sstars += earned; this.locked = true; this.last = true;
+      this.fb = ['أحسنت! 🎉','ممتاز! 🌟','رائع! 👏','برافو! 🥳'][this.i%4];
+      this.fbIsExplain = false;
+      recordAttempt(this.cur.id, this.tries===0?'first-try':'eventual');
+      addStars(earned);
+    } else {
+      this.tries++; this.last = false;
+      if(this.tries >= MAX_TRIES){
+        this.locked = true; this.revealed = true; this.revealedCount++;
+        this.fb = '💡 ' + (this.cur.explain || ('الحل الصحيح: ' + solutionText(this.cur)));
+        this.fbIsExplain = true;
+        recordAttempt(this.cur.id, 'revealed');
+      } else this.fb = 'حاول مرة أخرى 🌈';
+    }
+  }
+  goTo(i){ Object.assign(this,{i,tries:0,locked:false,revealed:false,last:null,fb:null,fbIsExplain:false}); this.run++; }
+  next(){ if(this.finished || !this.locked) return; this.isLast ? this.finish() : this.goTo(this.i+1); }
+  skip(){ if(this.finished || this.locked || this.skips >= MAX_SKIPS) return; this.skips++; this.skippedCount++; recordAttempt(this.cur.id,'skipped'); this.isLast ? this.finish() : this.goTo(this.i+1); }
+  finish(){ this.finished = true; if(this.pct > (S.best[this.key] ?? -1)) S.best[this.key] = this.pct; saveState(); }
+}
+
+const W = {};
+const LETTERS_A = ['أ','ب','ج','د','هـ','و'];
+
+function mkCheck(fn){
+  const b = document.createElement('button');
+  b.className = 'btn btn-primary';
+  b.style.cssText = 'width:100%;margin-top:14px;';
+  b.textContent = 'تحقق ✅';
+  b.onclick = fn;
+  return b;
+}
+
+/* ============================================================
+   FIXED W.mc/W.read — first-wrong-answer no longer locks the whole widget
+   ============================================================ */
+W.mc = W.read = (box, q, api) => {
+  if(q.word && q.word.startsWith('ال')){
+    const al = splitAl(q.word);
+    if(al){
+      const card = document.createElement('div');
+      card.className = 'al-card';
+      const wordEl = document.createElement('div');
+      wordEl.className = 'al-word';
+      wordEl.innerHTML = `<span class="al-highlight">${al.alPart}</span>${al.rest}`;
+      card.appendChild(wordEl);
+      const actions = document.createElement('div');
+      actions.className = 'al-actions';
+      const listen = document.createElement('button');
+      listen.className = 'btn btn-primary btn-sm';
+      listen.innerHTML = '🔊 اسمع الكلمة';
+      listen.onclick = () => Voice.speak(q.listenText || q.word);
+      const slow = document.createElement('button');
+      slow.className = 'btn btn-ghost btn-sm';
+      slow.innerHTML = '🐢 اسمع ببطء';
+      slow.onclick = () => Voice.speak(`${al.alPart.replace(/[ًٌٍَُِّْ]/g,'')}... ${al.rest}`);
+      actions.appendChild(listen); actions.appendChild(slow);
+      card.appendChild(actions);
+      if(q.hint){
+        const h = document.createElement('div');
+        h.className = 'al-hint';
+        h.textContent = q.hint;
+        card.appendChild(h);
+      }
+      box.appendChild(card);
+      setTimeout(() => Voice.speak(q.listenText || q.word), 400);
+    }
+  }
+  if(q.type === 'read'){
+    const w = document.createElement('div');
+    w.style.cssText = 'font-family:Amiri,serif;font-size:3.2rem;text-align:center;color:var(--purple);margin:10px 0;padding:14px;background:linear-gradient(135deg,var(--yellow-light),var(--pink-light));border-radius:20px;border:2.5px dashed var(--yellow);';
+    w.textContent = q.word; w.dir = 'rtl'; box.appendChild(w);
+    const spk = document.createElement('button');
+    spk.className = 'btn btn-primary';
+    spk.style.cssText = 'display:block;margin:0 auto 12px;';
+    spk.textContent = '🔊 اسمع الكلمة';
+    spk.onclick = () => Voice.speak(q.word);
+    box.appendChild(spk);
+    setTimeout(() => Voice.speak(q.word), 400);
+  }
+  if(q.hint && !(q.word && q.word.startsWith('ال'))){
+    const btn = document.createElement('button');
+    btn.className = 'hintbtn';
+    btn.style.cssText = 'width:100%;justify-content:center;margin:6px 0 12px;';
+    btn.innerHTML = '💡 تلميح';
+    const hb = document.createElement('div');
+    hb.className = 'fb explain hidden';
+    hb.innerHTML = q.hint;
+    let shown = false;
+    btn.onclick = () => { shown = !shown; hb.classList.toggle('hidden', !shown); btn.innerHTML = shown ? '🙈 إخفاء التلميح' : '💡 تلميح'; if(shown) Voice.speak(q.hint.replace(/[\u{1F300}-\u{1FAFF}]/gu,'').trim()); };
+    box.appendChild(btn); box.appendChild(hb);
+  }
+
+  const list = document.createElement('div');
+  list.className = 'choices';
+  const btns = [];
+  const opts = q.o || q.options;
+  opts.forEach((o, i) => {
+    const b = document.createElement('button');
+    b.className = 'choice' + (opts.some(x => String(x).length > 3) ? '' : ' big');
+    b.setAttribute('aria-label', `خيار ${LETTERS_A[i]}: ${o}`);
+
+    const badge = document.createElement('span');
+    badge.className = 'choice-badge';
+    badge.textContent = LETTERS_A[i] || String(i+1);
+
+    const text = document.createElement('span');
+    text.className = 'choice-text';
+    text.textContent = o;
+
+    b.appendChild(badge);
+    b.appendChild(text);
+
+    // ✅ FIX: on wrong answer, only disable the clicked button.
+    // Other buttons stay clickable so the child can retry.
+    b.onclick = () => {
+      if(i === q.a){
+        b.classList.add('ok');
+        btns.forEach(x => x.disabled = true);
+        api.submit(true);
+      } else {
+        b.classList.add('bad');
+        b.disabled = true;   // ← only this one
+        api.submit(false);   // ← session increments tries, others stay active
+      }
+    };
+    btns.push(b); list.appendChild(b);
+  });
+  box.appendChild(list);
+
+  // ✅ FIX: reveal() only fires when session truly locks (after MAX_TRIES)
+  // and only at that moment do we disable everything and highlight the answer.
+  return {
+    reveal(){
+      btns.forEach((b, i) => {
+        b.disabled = true;
+        b.classList.remove('bad');
+        if(i === q.a) b.classList.add('ok');
+      });
+    }
+  };
+};
+
+W.tap = (box, q, api) => {
+  const sel = new Set();
+  const wrap = document.createElement('div'); wrap.className = 'tapwrap';
+  const els = q.items.map((it, i) => {
+    const el = document.createElement('button');
+    el.className = 'tapitem' + (it.h.length <= 2 ? '' : ' word');
+    el.textContent = it.h;
+    el.setAttribute('aria-pressed','false');
+    el.onclick = () => {
+      if(sel.has(i)) sel.delete(i); else sel.add(i);
+      el.classList.toggle('sel', sel.has(i));
+      el.setAttribute('aria-pressed', sel.has(i));
+      if(it.h.length <= 2) Voice.speak(it.h);
+    };
+    wrap.appendChild(el); return el;
+  });
+  box.appendChild(wrap);
+  if(q.hint){
+    const btn = document.createElement('button');
+    btn.className = 'hintbtn';
+    btn.style.cssText = 'width:100%;justify-content:center;margin:6px 0;';
+    btn.innerHTML = '💡 تلميح';
+    const hb = document.createElement('div');
+    hb.className = 'fb explain hidden';
+    hb.innerHTML = q.hint;
+    let shown = false;
+    btn.onclick = () => { shown = !shown; hb.classList.toggle('hidden', !shown); btn.innerHTML = shown ? '🙈 إخفاء التلميح' : '💡 تلميح'; };
+    box.appendChild(btn); box.appendChild(hb);
+  }
+  box.appendChild(mkCheck(() => {
+    if(!sel.size) return showToast('اضغط على الإجابة أولًا 👆');
+    const ok = q.items.every((it, i) => sel.has(i) === (it.k === 1));
+    if(!ok){ sel.clear(); els.forEach(e => { e.classList.remove('sel'); e.setAttribute('aria-pressed','false'); }); }
+    api.submit(ok);
+    if(ok) els.forEach(e => e.disabled = true);
+  }));
+  return {
+    reveal(){
+      els.forEach((e,i) => {
+        e.classList.remove('sel'); e.disabled = true;
+        if(q.items[i].k === 1) e.classList.add('right');
+      });
+    }
+  };
+};
+
+/* ============================================================
+   FIXED W.match — reveal() shows the correct pairs clearly
+   ============================================================ */
+W.match = (box, q, api) => {
+  const P = q.pairs;
+  const rightOrder = seededShuffle(P.length, hashStr(q.id));
+  let sel = null;
+  const done = new Set();
+  const L = [], R = [];
+  const lc = document.createElement('div'); lc.className = 'match-col';
+  const rc = document.createElement('div'); rc.className = 'match-col';
+  const grid = document.createElement('div');
+  grid.className = 'mcols';
+
+  const draw = () => {
+    L.forEach((b,i) => { b.classList.toggle('done', done.has(i)); b.classList.toggle('sel', sel === i); b.disabled = done.has(i); });
+    R.forEach((b,i) => { b.classList.toggle('done', done.has(i)); b.disabled = done.has(i); });
+  };
+  P.forEach((p,i) => {
+    const b = document.createElement('button');
+    b.className = 'mtile arabic'; b.textContent = p[0];
+    b.onclick = () => { if(done.has(i)) return; sel = i; draw(); };
+    L[i] = b; lc.appendChild(b);
+  });
+  rightOrder.forEach(r => {
+    const b = document.createElement('button');
+    b.className = 'mtile emoji'; b.textContent = P[r][1];
+    b.onclick = () => {
+      if(done.has(r)) return;
+      if(sel == null){ showToast('اختر من العمود الآخر أولاً 👆'); return; }
+      if(sel === r){ done.add(r); sel = null; draw(); Voice.speak(P[r][0]); if(done.size === P.length) api.submit(true); }
+      else { sel = null; draw(); api.submit(false); }
+    };
+    R[r] = b; rc.appendChild(b);
+  });
+  grid.appendChild(lc); grid.appendChild(rc);
+  box.appendChild(grid);
+
+  // ✅ FIX: reveal() replaces the match grid with a clear solution list
+  return {
+    reveal(){
+      const solWrap = document.createElement('div');
+      solWrap.style.cssText = 'display:grid;gap:8px;padding:14px;background:var(--mint-light);border-radius:16px;border:2px solid var(--mint);';
+      const title = document.createElement('div');
+      title.style.cssText = 'font-weight:900;color:#0a7a5a;margin-bottom:6px;text-align:center;font-size:1.05rem;';
+      title.textContent = '✅ الحل الصحيح:';
+      solWrap.appendChild(title);
+      P.forEach(p => {
+        const row = document.createElement('div');
+        row.style.cssText = 'display:flex;align-items:center;gap:12px;background:white;border-radius:12px;padding:10px 14px;';
+        const w = document.createElement('span');
+        w.style.cssText = "font-family:'Amiri',serif;font-size:1.3rem;font-weight:700;flex:1;color:var(--purple);text-align:start;";
+        w.textContent = p[0];
+        const eq = document.createElement('span');
+        eq.textContent = '=';
+        eq.style.cssText = 'color:var(--mint);font-weight:900;font-size:1.3rem;';
+        const e = document.createElement('span');
+        e.style.cssText = 'font-size:2.2rem;';
+        e.textContent = p[1];
+        row.append(w, eq, e);
+        solWrap.appendChild(row);
+      });
+      grid.replaceChildren(solWrap);
+    }
+  };
+};
+
+W.order = (box, q, api) => {
+  const n = q.items.length;
+  const pool = seededShuffle(n, hashStr(q.id));
+  let placed = [];
+  const pb = document.createElement('div'); pb.className = 'ordbox';
+  const qb = document.createElement('div'); qb.className = 'ordpool';
+  const chip = (idx, num, fn) => {
+    const b = document.createElement('button');
+    b.className = 'chip' + (num ? ' placed' : '');
+    if(num){ const badge = document.createElement('b'); badge.textContent = num; b.appendChild(badge); }
+    const txt = document.createElement('span'); txt.textContent = q.items[idx]; b.appendChild(txt);
+    b.onclick = fn; return b;
+  };
+  const chk = mkCheck(() => {
+    const ok = placed.every((v,i) => v === i);
+    if(!ok){ placed = []; draw(); }
+    api.submit(ok);
+    if(ok){ pb.querySelectorAll('button').forEach(x => x.disabled = true); qb.querySelectorAll('button').forEach(x => x.disabled = true); }
+  });
+  function draw(){
+    pb.replaceChildren(...placed.map((idx,k) => chip(idx, k+1, () => { placed.splice(k,1); draw(); })));
+    qb.replaceChildren(...pool.filter(i => !placed.includes(i)).map(i => chip(i, 0, () => { placed.push(i); draw(); })));
+    chk.disabled = placed.length !== n;
+  }
+  const lab1 = document.createElement('div'); lab1.className = 'ordlab'; lab1.textContent = 'ترتيبك:';
+  const lab2 = document.createElement('div'); lab2.className = 'ordlab'; lab2.textContent = 'اضغط بالترتيب:';
+  box.append(lab1, pb, lab2, qb, chk);
+  draw();
+  return {
+    reveal(){
+      placed = Array.from({length:n},(_,i)=>i);
+      draw();
+      pb.querySelectorAll('button').forEach(x => x.disabled = true);
+      qb.querySelectorAll('button').forEach(x => x.disabled = true);
+      chk.disabled = true;
+    }
+  };
+};
+
+W.trace = (box, q, api) => {
+  const wrap = document.createElement('div'); wrap.className = 'trace-wrap';
+  const disp = document.createElement('div'); disp.className = 'letter-display'; disp.textContent = q.letter;
+  const cv = document.createElement('canvas'); cv.className = 'trace-canvas';
+  const controls = document.createElement('div'); controls.className = 'trace-controls';
+  const clearBtn = document.createElement('button'); clearBtn.className = 'btn btn-ghost'; clearBtn.textContent = '🧹 مسح';
+  const speakBtn = document.createElement('button'); speakBtn.className = 'btn btn-ghost'; speakBtn.textContent = '🔊 اسمع'; speakBtn.onclick = () => Voice.speak(q.letter);
+  const doneBtn = document.createElement('button'); doneBtn.className = 'btn btn-mint'; doneBtn.textContent = 'انتهيت ✅';
+  controls.append(clearBtn, speakBtn, doneBtn);
+  wrap.append(disp, cv, controls); box.appendChild(wrap);
+  const ctx = cv.getContext('2d');
+  let drawn = false, lastDraw = [];
+  function resize(){
+    const rect = cv.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    if(!rect.width) return;
+    cv.width = Math.round(rect.width * dpr);
+    cv.height = Math.round(rect.width * dpr * 0.64);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    drawGuide();
+    if(lastDraw.length){ ctx.strokeStyle = '#9B59FF'; ctx.lineWidth = 12; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; lastDraw.forEach(s => { if(s.length<2) return; ctx.beginPath(); s.forEach((p,i) => i ? ctx.lineTo(p.x,p.y) : ctx.moveTo(p.x,p.y)); ctx.stroke(); }); }
+  }
+  function drawGuide(){
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    ctx.save(); ctx.setTransform(dpr,0,0,dpr,0,0);
+    const vw = cv.width/dpr, vh = cv.height/dpr;
+    ctx.clearRect(0,0,vw,vh);
+    ctx.strokeStyle = 'rgba(155,89,255,0.15)'; ctx.lineWidth = 1.5; ctx.setLineDash([8,8]);
+    [vh*0.25,vh*0.5,vh*0.75].forEach(y => { ctx.beginPath(); ctx.moveTo(20,y); ctx.lineTo(vw-20,y); ctx.stroke(); });
+    ctx.setLineDash([]);
+    ctx.fillStyle = 'rgba(155,89,255,0.13)';
+    ctx.font = `bold ${vh*0.72}px Amiri, serif`;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(q.letter, vw/2, vh/2);
+    ctx.restore();
+  }
+  let drawing = false, currentStroke = [];
+  const pos = e => { const r = cv.getBoundingClientRect(); const cx = e.touches?e.touches[0].clientX:e.clientX; const cy = e.touches?e.touches[0].clientY:e.clientY; return {x:cx-r.left,y:cy-r.top}; };
+  const start = e => { if(e.preventDefault) e.preventDefault(); drawing = true; drawn = true; currentStroke = [pos(e)]; lastDraw.push(currentStroke); ctx.strokeStyle = '#9B59FF'; ctx.lineWidth = 12; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); ctx.moveTo(currentStroke[0].x, currentStroke[0].y); };
+  const move = e => { if(!drawing) return; if(e.preventDefault) e.preventDefault(); const p = pos(e); currentStroke.push(p); ctx.lineTo(p.x,p.y); ctx.stroke(); ctx.beginPath(); ctx.moveTo(p.x,p.y); };
+  const end = () => { drawing = false; };
+  cv.addEventListener('mousedown', start); cv.addEventListener('mousemove', move); cv.addEventListener('mouseup', end); cv.addEventListener('mouseleave', end);
+  cv.addEventListener('touchstart', start, {passive:false}); cv.addEventListener('touchmove', move, {passive:false}); cv.addEventListener('touchend', end, {passive:false});
+  clearBtn.onclick = () => { lastDraw = []; drawn = false; drawGuide(); };
+  doneBtn.onclick = () => { if(!drawn) return showToast('ارسم الحرف أولًا ✏️'); doneBtn.disabled = true; clearBtn.disabled = true; api.submit(true); };
+  let ro; if(window.ResizeObserver){ ro = new ResizeObserver(() => resize()); ro.observe(cv); }
+  requestAnimationFrame(resize);
+  return { reveal(){ clearBtn.disabled = true; speakBtn.disabled = true; doneBtn.disabled = true; }, destroy(){ if(ro) ro.disconnect(); } };
+};
+
+let currentSession = null;
+let currentInst = null;
+
+function openUnit(sess){
+  currentSession = sess;
+  const ov = document.getElementById('unitOverlay');
+  ov.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+  const color = FIELDCOL[sess.field] || ['#9B59FF','#E8D5FF'];
+  document.getElementById('unitTopbar').style.background = `linear-gradient(135deg, ${color[0]}, ${color[0]}cc)`;
+  document.getElementById('unitTitle').textContent = sess.title;
+  const rules = document.getElementById('unitRulesCard');
+  rules.innerHTML = '';
+  const unit = DATA.units.find(u => sess.title.includes(u.title.replace(/^المحور \d+: /,'')));
+  if(unit && unit.intro) rules.innerHTML = unit.intro.body;
+  document.getElementById('unitBody').classList.remove('hidden');
+  document.getElementById('unitBottom').classList.remove('hidden');
+  document.querySelector('.unit-progress-wrap').classList.remove('hidden');
+  document.querySelector('.unit-meta').classList.remove('hidden');
+  document.getElementById('unitResultView').classList.add('hidden');
+  document.getElementById('unitResultView').innerHTML = '';
+  loadExercise();
+}
+
+function closeUnit(){
+  Voice.stop();
+  const ov = document.getElementById('unitOverlay');
+  ov.classList.add('hidden');
+  document.body.style.overflow = '';
+  currentSession = null;
+  if(currentInst && currentInst.destroy) try{ currentInst.destroy(); }catch(e){}
+  currentInst = null;
+  renderHome();
+}
+
+function loadExercise(){
+  const sess = currentSession; if(!sess) return;
+  if(sess.finished){ showUnitResult(); return; }
+  if(currentInst && currentInst.destroy) try{ currentInst.destroy(); }catch(e){}
+  currentInst = null;
+  const q = sess.cur;
+  const color = FIELDCOL[sess.field] || ['#9B59FF','#E8D5FF'];
+  document.getElementById('unitStars').textContent = `⭐ ${sess.sstars}`;
+  document.getElementById('unitIdx').textContent = `${sess.i+1} / ${sess.list.length}`;
+  document.getElementById('unitPage').textContent = q.p ? `📖 ص ${q.p}` : '';
+  const pf = document.getElementById('unitProgress');
+  pf.style.background = color[0];
+  pf.style.width = (sess.i*100/sess.list.length) + '%';
+  document.getElementById('unitQuestion').textContent = q.t;
+  const vis = document.getElementById('unitVis');
+  vis.textContent = q.v || '';
+  vis.style.display = q.v ? 'block' : 'none';
+  vis.className = 'qvis' + (q.type === 'read' ? ' arabic' : '');
+  const box = document.getElementById('unitBox');
+  box.innerHTML = ''; box.inert = false;
+  const fb = document.getElementById('unitFb');
+  fb.className = 'fb hidden'; fb.textContent = '';
+  const api = {submit: ok => { sess.submit(ok); if(sess.revealed && currentInst && currentInst.reveal) currentInst.reveal(); refreshOverlay(); }};
+  const widget = W[q.type];
+  if(widget){ try{ currentInst = widget(box, q, api); }catch(err){ console.error(err); const p = document.createElement('p'); p.textContent = 'خطأ'; box.appendChild(p); } }
+  else { const p = document.createElement('p'); p.textContent = 'نوع غير مدعوم'; box.appendChild(p); }
+  if(q.type !== 'read' && q.type !== 'trace' && !(q.word && q.word.startsWith('ال'))) Voice.speak(q.t);
+  refreshOverlay();
+}
+
+function refreshOverlay(){
+  const sess = currentSession; if(!sess) return;
+  const box = document.getElementById('unitBox');
+  box.inert = sess.locked;
+  const fb = document.getElementById('unitFb');
+  if(sess.fb){ fb.className = 'fb ' + (sess.last ? 'good' : (sess.fbIsExplain ? 'explain' : 'try')); fb.textContent = sess.fb; }
+  else { fb.className = 'fb hidden'; fb.textContent = ''; }
+  document.getElementById('unitStars').textContent = `⭐ ${sess.sstars}`;
+  const bottom = document.getElementById('unitBottom'); bottom.innerHTML = '';
+
+  // Skip button (only if not locked and skips remain)
+  if(!sess.locked && sess.skips < MAX_SKIPS){
+    const skipBtn = document.createElement('button');
+    skipBtn.className = 'linkbtn';
+    skipBtn.textContent = `تخطّي (${MAX_SKIPS - sess.skips})`;
+    skipBtn.onclick = () => { sess.skip(); if(sess.finished) return showUnitResult(); loadExercise(); };
+    bottom.appendChild(skipBtn);
+  }
+
+  const grow = document.createElement('span'); grow.className = 'grow'; bottom.appendChild(grow);
+
+  if(sess.locked){
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'btn btn-primary';
+    nextBtn.textContent = sess.isLast ? 'النتيجة 🏆' : 'التالي ➡️';
+    nextBtn.onclick = () => { sess.next(); if(sess.finished) return showUnitResult(); loadExercise(); };
+    bottom.appendChild(nextBtn);
+    setTimeout(() => nextBtn.focus({preventScroll:true}), 80);
+  } else if(sess.tries > 0){
+    // ✅ P2 FIX: fallback "Next" button appears after ≥1 wrong attempt.
+    // This guarantees the child is never stuck.
+    const fallback = document.createElement('button');
+    fallback.className = 'btn btn-ghost';
+    fallback.textContent = 'التالي ➡️';
+    fallback.style.opacity = '0.85';
+    fallback.onclick = () => {
+      // Force-lock and reveal so session counts as revealed
+      sess.locked = true;
+      sess.revealed = true;
+      sess.revealedCount++;
+      sess.fb = '💡 ' + (sess.cur.explain || ('الحل الصحيح: ' + solutionText(sess.cur)));
+      sess.fbIsExplain = true;
+      recordAttempt(sess.cur.id, 'revealed');
+      if(currentInst && currentInst.reveal) currentInst.reveal();
+      refreshOverlay();
+    };
+    bottom.appendChild(fallback);
+  }
+}
+
+function showUnitResult(){
+  const sess = currentSession; if(!sess) return;
+  const good = sess.pct >= 60;
+  document.getElementById('unitBody').classList.add('hidden');
+  document.getElementById('unitBottom').classList.add('hidden');
+  document.querySelector('.unit-progress-wrap').classList.add('hidden');
+  document.querySelector('.unit-meta').classList.add('hidden');
+  const rv = document.getElementById('unitResultView');
+  rv.classList.remove('hidden');
+  rv.innerHTML = `
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:40px 20px;text-align:center;max-width:520px;margin:0 auto;">
+      <div style="font-size:5.5rem;">${good ? '🎉' : '💪'}</div>
+      <h2 style="font-size:2rem;color:var(--purple);margin:10px 0;">${good ? 'أحسنت!' : 'حاول مرة أخرى'}</h2>
+      <div style="display:flex;gap:8px;justify-content:center;font-size:3.2rem;margin:14px 0;color:var(--yellow);">${[0,1,2].map(i => `<span>${i<sess.rating?'⭐':'☆'}</span>`).join('')}</div>
+      <div style="background:white;border:2.5px solid var(--purple-light);border-radius:22px;padding:20px;width:100%;box-shadow:var(--shadow-lg);">
+        <h3 style="color:var(--purple);margin-bottom:10px;">📊 تفاصيل النتيجة</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <div style="background:var(--purple-soft);padding:10px;border-radius:12px;text-align:center;">
+            <span style="font-size:1.5rem;font-weight:900;color:var(--purple);display:block;">${sess.firstTryCorrect}/${sess.list.length}</span>
+            <span style="font-size:0.78rem;color:var(--text-soft);font-weight:700;">صحيحة من أول مرة</span>
+          </div>
+          <div style="background:var(--purple-soft);padding:10px;border-radius:12px;text-align:center;">
+            <span style="font-size:1.5rem;font-weight:900;color:var(--purple);display:block;">${sess.eventualCorrect}</span>
+            <span style="font-size:0.78rem;color:var(--text-soft);font-weight:700;">صحيحة بعد محاولات</span>
+          </div>
+          <div style="background:var(--purple-soft);padding:10px;border-radius:12px;text-align:center;">
+            <span style="font-size:1.5rem;font-weight:900;color:var(--purple);display:block;">${sess.revealedCount}</span>
+            <span style="font-size:0.78rem;color:var(--text-soft);font-weight:700;">تم كشف حلها</span>
+          </div>
+          <div style="background:var(--purple-soft);padding:10px;border-radius:12px;text-align:center;">
+            <span style="font-size:1.5rem;font-weight:900;color:var(--purple);display:block;">${sess.skippedCount}</span>
+            <span style="font-size:0.78rem;color:var(--text-soft);font-weight:700;">تم تخطيها</span>
+          </div>
+        </div>
+        <p style="text-align:center;font-weight:900;color:var(--pink);font-size:1.1rem;margin-top:12px;">⭐ كسبت ${sess.sstars} نجمة</p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px;">
+          <button class="btn btn-primary" onclick="closeUnit()">🏠 الفهرس</button>
+          <button class="btn btn-ghost" onclick="retryUnit()">🔄 مرة أخرى</button>
+        </div>
+      </div>
+    </div>
+  `;
+  if(good) setTimeout(confetti, 250);
+}
+
+function retryUnit(){
+  if(!currentSession) return;
+  const old = currentSession;
+  currentSession = new Session({key: old.key, title: old.title, list: old.list, field: old.field});
+  document.getElementById('unitBody').classList.remove('hidden');
+  document.getElementById('unitBottom').classList.remove('hidden');
+  document.querySelector('.unit-progress-wrap').classList.remove('hidden');
+  document.querySelector('.unit-meta').classList.remove('hidden');
+  document.getElementById('unitResultView').classList.add('hidden');
+  document.getElementById('unitResultView').innerHTML = '';
+  loadExercise();
+}
+
+function renderHome(){
+  const grid = document.getElementById('chaptersGrid'); if(!grid) return;
+  grid.innerHTML = '';
+  let td = 0, tq = 0;
+  DATA.units.forEach(u => { tq += u.qs.length; td += u.qs.filter(q => S.done[q.id]).length; });
+  const pct = tq ? Math.round(td*100/tq) : 0;
+  const op = document.getElementById('overallProgress');
+  if(op) op.innerHTML = `<div class="row"><span>📊 التقدم الكلي</span><span>${td} / ${tq} (${pct}٪)</span></div><div class="bar"><i style="width:${pct}%"></i></div>`;
+  DATA.units.forEach((u, i) => {
+    const dc = u.qs.filter(q => S.done[q.id]).length;
+    const p = Math.round(dc*100/u.qs.length);
+    const status = dc === u.qs.length ? '🏆' : (dc > 0 ? '⏳' : '');
+    const card = document.createElement('button');
+    card.className = 'chapter-card';
+    card.innerHTML = `${status ? `<span class="status-badge">${status}</span>` : ''}<div class="emoji">${u.icon}</div><div class="num">${i+1}</div><div class="title">${u.title.replace(/^المحور \d+: /,'')}</div><div class="bar"><i style="width:${p}%"></i></div><div class="sub">${dc} / ${u.qs.length}</div>`;
+    card.onclick = () => openUnit(new Session({key:'unit'+i, title:u.title, list:u.qs, field:u.field}));
+    grid.appendChild(card);
+  });
+}
+
+const tabs = document.querySelectorAll('.tab');
+const sections = document.querySelectorAll('.section');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+    sections.forEach(s => s.classList.remove('active'));
+    tab.classList.add('active'); tab.setAttribute('aria-selected','true');
+    const target = tab.dataset.target;
+    document.getElementById(target).classList.add('active');
+    if(target === 'matching' && document.getElementById('matchWords').children.length === 0) newMatchGame();
+    if(target === 'quiz' && document.getElementById('quizQuestion').textContent === '') startQuiz();
+    if(target === 'tracing' && !canvas) initCanvas();
+    if(target === 'parent') renderParent();
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+});
+
+let currentReadingIdx = 0, readingCorrect = 0, readingTotal = 0, readingLocked = false;
+function renderReading(){
+  const data = READING_WORDS[currentReadingIdx];
+  document.getElementById('readingWord').textContent = data.word;
+  document.getElementById('readingEmoji').textContent = data.emoji;
+  const bank = document.getElementById('wordBank'); bank.innerHTML = '';
+  const LETTERS = ['أ','ب','ج','د'];
+  shuffle(data.options).forEach((opt, i) => {
+    const chip = document.createElement('button');
+    chip.className = 'word-chip';
+    const badge = document.createElement('span');
+    badge.className = 'choice-badge';
+    badge.textContent = LETTERS[i];
+    const text = document.createElement('span');
+    text.className = 'choice-text';
+    text.style.fontFamily = "'Amiri',serif";
+    text.style.fontSize = '1.4rem';
+    text.textContent = opt;
+    chip.appendChild(badge);
+    chip.appendChild(text);
+    chip.onclick = () => checkReadingAnswer(chip, opt, data.word);
+    bank.appendChild(chip);
+  });
+  readingLocked = false;
+  document.getElementById('readingProgress').style.width = ((currentReadingIdx)/READING_WORDS.length*100) + '%';
+  document.getElementById('readingProgressText').textContent = `${currentReadingIdx} / ${READING_WORDS.length}`;
+}
+function checkReadingAnswer(chip, selected, correct){
+  if(readingLocked) return;
+  if(selected === correct){
+    readingLocked = true;
+    chip.classList.add('correct');
+    readingCorrect++; readingTotal++;
+    Voice.speak(correct); showToast('🎉 أحسنت!');
+    document.querySelectorAll('.word-chip').forEach(c => c.disabled = true);
+    document.getElementById('readingProgress').style.width = ((currentReadingIdx+1)/READING_WORDS.length*100) + '%';
+    document.getElementById('readingProgressText').textContent = `${currentReadingIdx+1} / ${READING_WORDS.length}`;
+    setTimeout(() => {
+      if(currentReadingIdx < READING_WORDS.length - 1){ currentReadingIdx++; renderReading(); }
+      else { showToast(`🏆 أكملت! ${readingCorrect}/${readingTotal}`); readingCorrect=0; readingTotal=0; currentReadingIdx=0; setTimeout(renderReading, 1500); }
+    }, 1200);
+  } else { chip.classList.add('wrong'); showToast('❌ حاول مرة أخرى'); setTimeout(() => chip.classList.remove('wrong'), 600); }
+}
+function nextWord(){ if(readingLocked) return; currentReadingIdx = (currentReadingIdx+1)%READING_WORDS.length; renderReading(); speakCurrentWord(); }
+function prevWord(){ if(readingLocked) return; currentReadingIdx = (currentReadingIdx-1+READING_WORDS.length)%READING_WORDS.length; renderReading(); speakCurrentWord(); }
+function speakCurrentWord(){ Voice.speak(READING_WORDS[currentReadingIdx].word); }
+
+let currentLetterIdx = 0, canvas, ctx, drawing = false, lastX = 0, lastY = 0;
+let traceInit = false, traceLastDraw = [];
+function initCanvas(){
+  canvas = document.getElementById('traceCanvas'); if(!canvas) return;
+  ctx = canvas.getContext('2d');
+  if(!traceInit){
+    canvas.addEventListener('mousedown', startDraw);
+    canvas.addEventListener('mousemove', drawLine);
+    canvas.addEventListener('mouseup', endDraw);
+    canvas.addEventListener('mouseleave', endDraw);
+    canvas.addEventListener('touchstart', e => { e.preventDefault(); startDraw(e.touches[0]); }, {passive:false});
+    canvas.addEventListener('touchmove', e => { e.preventDefault(); drawLine(e.touches[0]); }, {passive:false});
+    canvas.addEventListener('touchend', e => { e.preventDefault(); endDraw(); }, {passive:false});
+    traceInit = true;
+    if(window.ResizeObserver) new ResizeObserver(() => resizeCanvas()).observe(canvas);
+  }
+  resizeCanvas(); updateLetterDisplay();
+}
+function resizeCanvas(){
+  if(!canvas) return;
+  const rect = canvas.getBoundingClientRect();
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  if(!rect.width) return;
+  canvas.width = Math.round(rect.width*dpr);
+  canvas.height = Math.round(rect.width*dpr*0.64);
+  if(ctx) ctx.setTransform(dpr,0,0,dpr,0,0);
+  drawGuide();
+  if(traceLastDraw.length && ctx){ ctx.strokeStyle = '#9B59FF'; ctx.lineWidth = 12; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; traceLastDraw.forEach(s => { if(s.length<2) return; ctx.beginPath(); s.forEach((p,i) => i ? ctx.lineTo(p.x,p.y) : ctx.moveTo(p.x,p.y)); ctx.stroke(); }); }
+}
+function drawGuide(){
+  if(!ctx||!canvas) return;
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  ctx.save(); ctx.setTransform(dpr,0,0,dpr,0,0);
+  const vw = canvas.width/dpr, vh = canvas.height/dpr;
+  ctx.clearRect(0,0,vw,vh);
+  ctx.strokeStyle = '#E8D5FF'; ctx.lineWidth = 1.5; ctx.setLineDash([8,8]);
+  [vh*0.25,vh*0.5,vh*0.75].forEach(y => { ctx.beginPath(); ctx.moveTo(20,y); ctx.lineTo(vw-20,y); ctx.stroke(); });
+  ctx.setLineDash([]);
+  ctx.fillStyle = 'rgba(155,89,255,0.16)';
+  ctx.font = `bold ${vh*0.68}px Amiri, serif`;
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText(ARABIC_LETTERS[currentLetterIdx].letter, vw/2, vh/2);
+  ctx.restore();
+  if(ctx){ ctx.strokeStyle = '#9B59FF'; ctx.lineWidth = 12; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; }
+}
+function getPos(e){ const r = canvas.getBoundingClientRect(); return {x:e.clientX-r.left, y:e.clientY-r.top}; }
+function startDraw(e){ drawing = true; const p = getPos(e); lastX = p.x; lastY = p.y; ctx.strokeStyle = '#9B59FF'; ctx.lineWidth = 12; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); ctx.moveTo(p.x, p.y); const s = [{x:p.x,y:p.y}]; traceLastDraw.push(s); canvas.__s = s; }
+function drawLine(e){ if(!drawing) return; const p = getPos(e); ctx.lineTo(p.x,p.y); ctx.stroke(); ctx.beginPath(); ctx.moveTo(p.x,p.y); if(canvas.__s) canvas.__s.push({x:p.x,y:p.y}); lastX = p.x; lastY = p.y; }
+function endDraw(){ drawing = false; canvas.__s = null; }
+function clearCanvas(){ traceLastDraw = []; drawGuide(); showToast('🧹 تم المسح'); }
+function nextLetter(){ currentLetterIdx = (currentLetterIdx+1)%ARABIC_LETTERS.length; traceLastDraw=[]; updateLetterDisplay(); speakLetter(); }
+function prevLetter(){ currentLetterIdx = (currentLetterIdx-1+ARABIC_LETTERS.length)%ARABIC_LETTERS.length; traceLastDraw=[]; updateLetterDisplay(); speakLetter(); }
+function updateLetterDisplay(){ const l = ARABIC_LETTERS[currentLetterIdx]; document.getElementById('letterName').textContent = l.name; document.getElementById('letterBadge').textContent = `${currentLetterIdx+1} / ${ARABIC_LETTERS.length}`; if(ctx) drawGuide(); }
+function speakLetter(){ Voice.speak(ARABIC_LETTERS[currentLetterIdx].name); }
+
+let matchSelW = null, matchSelI = null, matchPairs = [], matchMatched = 0, matchTotal = 0, matchLocked = false;
+function newMatchGame(){
+  const sh = shuffle(MATCH_DATA).slice(0,6);
+  matchPairs = sh; matchMatched = 0; matchTotal = sh.length; matchSelW = null; matchSelI = null; matchLocked = false;
+  const wC = document.getElementById('matchWords'), iC = document.getElementById('matchImages');
+  wC.innerHTML = ''; iC.innerHTML = '';
+  shuffle(sh).forEach(item => { const el = document.createElement('button'); el.className = 'match-item word'; el.textContent = item.word; el.dataset.word = item.word; el.onclick = () => selectW(el); wC.appendChild(el); });
+  shuffle(sh).forEach(item => { const el = document.createElement('button'); el.className = 'match-item emoji'; el.textContent = item.emoji; el.dataset.emoji = item.emoji; el.onclick = () => selectI(el); iC.appendChild(el); });
+  updateMatchScore();
+}
+function selectW(el){ if(matchLocked || el.classList.contains('matched')) return; document.querySelectorAll('#matchWords .match-item').forEach(i => i.classList.remove('selected')); el.classList.add('selected'); matchSelW = el; checkMatch(); }
+function selectI(el){ if(matchLocked || el.classList.contains('matched')) return; document.querySelectorAll('#matchImages .match-item').forEach(i => i.classList.remove('selected')); el.classList.add('selected'); matchSelI = el; checkMatch(); }
+function checkMatch(){
+  if(!matchSelW || !matchSelI) return;
+  const w = matchSelW.dataset.word, e = matchSelI.dataset.emoji;
+  const pair = matchPairs.find(p => p.word === w);
+  if(pair && pair.emoji === e){
+    matchSelW.classList.add('matched'); matchSelW.disabled = true;
+    matchSelI.classList.add('matched'); matchSelI.disabled = true;
+    matchMatched++; Voice.speak(w); showToast('🎉 مطابقة صحيحة!'); updateMatchScore();
+    if(matchMatched === matchTotal){ matchLocked = true; setTimeout(() => showToast('🏆 أكملت!'), 900); }
+  } else {
+    matchLocked = true;
+    const w1 = matchSelW, i1 = matchSelI;
+    w1.classList.add('wrong-match'); i1.classList.add('wrong-match');
+    setTimeout(() => { w1.classList.remove('wrong-match','selected'); i1.classList.remove('wrong-match','selected'); matchLocked = false; }, 700);
+    showToast('❌ حاول مرة أخرى');
+  }
+  matchSelW = null; matchSelI = null;
+}
+function updateMatchScore(){ document.getElementById('matchScore').textContent = `✅ ${matchMatched} / ${matchTotal}`; }
+
+let quizIdx = 0, quizScore = 0, quizQuestions = [], quizLocked = false;
+function startQuiz(){
+  quizQuestions = shuffle(QUIZ_QUESTIONS).slice(0,5);
+  quizIdx = 0; quizScore = 0; quizLocked = false;
+  document.getElementById('quizFinal').style.display = 'none';
+  document.getElementById('quizContent').style.display = 'block';
+  renderQuiz();
+}
+function renderQuiz(){
+  if(quizIdx >= quizQuestions.length){ showQuizFinal(); return; }
+  quizLocked = false;
+  const q = quizQuestions[quizIdx];
+  document.getElementById('quizProgress').textContent = `السؤال ${quizIdx+1} من ${quizQuestions.length}`;
+  document.getElementById('quizScoreLive').textContent = `⭐ ${quizScore}`;
+  document.getElementById('quizQuestion').textContent = q.q;
+  const opts = document.getElementById('quizOptions'); opts.innerHTML = '';
+  const LETTERS = ['أ','ب','ج','د'];
+  shuffle(q.options.map((o,i) => ({text:o, correct: i===q.correct}))).forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-option';
+    const badge = document.createElement('span');
+    badge.className = 'quiz-option-badge';
+    badge.textContent = LETTERS[i];
+    const text = document.createElement('span');
+    text.className = 'quiz-option-text';
+    text.textContent = opt.text;
+    btn.appendChild(badge);
+    btn.appendChild(text);
+    btn.onclick = () => answerQuiz(btn, opt.correct);
+    opts.appendChild(btn);
+  });
+}
+function answerQuiz(btn, isCorrect){
+  if(quizLocked) return; quizLocked = true;
+  document.querySelectorAll('.quiz-option').forEach(o => o.disabled = true);
+  if(isCorrect){ btn.classList.add('correct'); quizScore++; document.getElementById('quizScoreLive').textContent = `⭐ ${quizScore}`; showToast('🎉 إجابة صحيحة!'); }
+  else {
+    btn.classList.add('wrong');
+    const q = quizQuestions[quizIdx];
+    document.querySelectorAll('.quiz-option').forEach(o => { if(o.querySelector('.quiz-option-text').textContent === q.options[q.correct]) o.classList.add('correct'); });
+    showToast('❌ إجابة خاطئة');
+  }
+  setTimeout(() => { quizIdx++; renderQuiz(); }, 1800);
+}
+function showQuizFinal(){
+  document.getElementById('quizContent').style.display = 'none';
+  const f = document.getElementById('quizFinal'); f.style.display = 'block';
+  const pct = quizScore / quizQuestions.length;
+  let tr, msg, col;
+  if(pct === 1){ tr = '🏆'; msg = 'ممتاز!'; col = 'var(--pink)'; }
+  else if(pct >= 0.6){ tr = '🌟'; msg = 'جيد جداً!'; col = 'var(--purple)'; }
+  else { tr = '💪'; msg = 'حاول مرة أخرى'; col = 'var(--blue)'; }
+  f.innerHTML = `<div class="trophy">${tr}</div><div class="score-big" style="color:${col}">${quizScore} / ${quizQuestions.length}</div><div class="message">${msg}</div>`;
+  document.getElementById('quizProgress').textContent = '🎉 انتهى!';
+  document.getElementById('quizScoreLive').textContent = `⭐ ${quizScore}`;
+}
+
+function renderParent(){
+  const pc = document.getElementById('parentContent'); if(!pc) return;
+  const tq = DATA.units.reduce((a,u) => a + u.qs.length, 0);
+  const done = Object.keys(S.done).length;
+  const mis = Object.keys(S.mistakes).length;
+  const pct = tq ? Math.round(done*100/tq) : 0;
+  pc.innerHTML = `
+    <div style="padding:14px;background:var(--purple-soft);border-radius:16px;margin-bottom:14px;">
+      <p style="margin:0 0 6px;font-weight:900;font-size:1.05rem;">${S.name || 'الطفل'}: ${done} / ${tq} (${pct}٪)</p>
+      <p style="margin:0;color:var(--text-soft);font-size:0.9rem;">⭐ ${S.stars} نجمة • 🔥 ${S.streak} أيام • ❗ ${mis} للمراجعة</p>
+    </div>
+    <h3 style="color:var(--purple);margin:16px 0 8px;">📊 التقدم حسب المحاور</h3>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;">
+        <thead><tr>
+          <th style="padding:8px;border-bottom:1px solid var(--purple-light);text-align:start;">المحور</th>
+          <th style="padding:8px;border-bottom:1px solid var(--purple-light);text-align:start;">المنجز</th>
+          <th style="padding:8px;border-bottom:1px solid var(--purple-light);text-align:start;">أفضل</th>
+        </tr></thead>
+        <tbody>${DATA.units.map((u,i) => {
+          const d = u.qs.filter(q => S.done[q.id]).length;
+          const b = S.best['unit'+i];
+          return `<tr>
+            <td style="padding:8px;border-bottom:1px solid var(--purple-light);">${u.icon} ${u.title}</td>
+            <td style="padding:8px;border-bottom:1px solid var(--purple-light);">${d}/${u.qs.length}</td>
+            <td style="padding:8px;border-bottom:1px solid var(--purple-light);">${b != null ? b+'%' : '—'}</td>
+          </tr>`;
+        }).join('')}</tbody>
+      </table>
+    </div>
+    <h3 style="color:var(--purple);margin:18px 0 8px;">💾 حفظ / استعادة</h3>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="btn btn-primary" id="exportBtn">📤 حفظ نسخة</button>
+      <button class="btn btn-ghost" id="importBtn">📥 استعادة</button>
+      <button class="btn btn-warn" id="resetBtn">♻️ إعادة</button>
+    </div>
+    <input type="file" id="importFile" accept=".json,application/json" style="display:none;">
+  `;
+  document.getElementById('exportBtn').onclick = () => {
+    try{ const blob = new Blob([JSON.stringify(S, null, 2)], {type:'application/json'}); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = `loghati-${todayStr()}.json`; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url); showToast('✅ تم التصدير'); }catch(e){ showToast('⚠️'); }
+  };
+  document.getElementById('importBtn').onclick = () => document.getElementById('importFile').click();
+  document.getElementById('importFile').onchange = e => { const f = e.target.files[0]; if(!f) return; const r = new FileReader(); r.onload = () => { try{ S = mergeState(JSON.parse(r.result)); saveState(); renderParent(); renderHome(); showToast('✅'); }catch(err){ showToast('⚠️'); } }; r.readAsText(f); };
+  document.getElementById('resetBtn').onclick = () => { if(confirm('هل تريد مسح التقدم؟')){ S = DEFAULTS(); saveState(); renderParent(); renderHome(); showToast('تم'); } };
+}
+
+window.addEventListener('load', () => {
+  const r = loadState();
+  if(!r.ok) setTimeout(() => setSaveStatus('err'), 800);
+  renderHome(); renderReading();
+  setTimeout(() => { if(document.getElementById('tracing').classList.contains('active')) initCanvas(); }, 100);
+  let rt;
+  window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { if(document.getElementById('tracing').classList.contains('active')) resizeCanvas(); }, 250); });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape'){ const ov = document.getElementById('unitOverlay'); if(ov && !ov.classList.contains('hidden')) closeUnit(); } });
+});
+</script>
+</body>
+</html>
